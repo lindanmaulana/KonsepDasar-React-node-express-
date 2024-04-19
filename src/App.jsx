@@ -9,6 +9,8 @@ function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    // Add data store redux
     dispatch(
       addToCart({
         namaDepan: event.target.namaDepan.value,
@@ -16,6 +18,7 @@ function App() {
       })
     );
 
+    // Validasi data login
     if(state.data) {
       dispatch(login())
     }
@@ -37,6 +40,11 @@ function App() {
             />
             <button>save</button>
           </form>
+
+          {/* Mapping data store redux */}
+          {state.data.map((items) => (
+            <h1 key={items.namaDepan}>{items.namaDepan}</h1>
+          ))}
         </div>
       </section>
     </>
