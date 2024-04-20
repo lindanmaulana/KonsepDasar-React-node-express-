@@ -3,7 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { login, register } from "./redux/slices/cartSlices";
 
 function App() {
+  // Hook redux untuk dispatch
   const dispatch = useDispatch();
+
+  // Hook redux untuk mengambil data store
   const state = useSelector((state) => state.cart);
 
   const handleSubmit = (event) => {
