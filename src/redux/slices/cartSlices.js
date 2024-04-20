@@ -3,18 +3,24 @@ import { createSlice } from "@reduxjs/toolkit";
 const cartSlices = createSlice({
   name: "cart",
   initialState: {
-    data: [],
+    data: {
+      register: [],
+      cartItem: []
+    },
     userLogin: false,
   },
   reducers: {
-    addToCart: (state, action) => {
-      state.data.push(action.payload);
+    register: (state, action) => {
+      state.data.register.push(action.payload)
     },
     login: (status) => {
       status.userLogin = true;
     },
+    addToCart: (state, action) => {
+      state.data.cartItem.push(action.payload);
+    },
   },
 });
 
-export const { addToCart, login } = cartSlices.actions;
+export const { addToCart, login, register } = cartSlices.actions;
 export default cartSlices.reducer;
