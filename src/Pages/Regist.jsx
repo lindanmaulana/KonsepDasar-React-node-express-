@@ -27,13 +27,15 @@ const Regist = () => {
     }
   };
 
+  //   mengirim data ke server
   useEffect(() => {
     const data = state.data.register;
 
     formLogin(data, (callback) => {
-      console.log(callback)
-    })
-  }, [state.data])
+      console.log(callback);
+    });
+  }, [state.data]);
+  
   return (
     <>
       <section>
