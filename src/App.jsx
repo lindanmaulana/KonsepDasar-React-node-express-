@@ -1,62 +1,26 @@
-import "./App.css";
-import { useDispatch, useSelector } from "react-redux";
-import { login, register } from "./redux/slices/cartSlices";
-
+import Regist from "./Pages/Regist";
 function App() {
-  // Hook redux untuk dispatch
-  const dispatch = useDispatch();
-
-  // Hook redux untuk mengambil data store
-  const state = useSelector((state) => state.cart);
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    // Add data store redux
-    dispatch(
-      register({
-        namaDepan: event.target.namaDepan.value,
-        namaBelakang: event.target.namaBelakang.value,
-      })
-    );
-
-    // Validasi data login
-    if (state.data) {
-      dispatch(login());
-    }
-  };
   return (
     <>
-      <section>
+    <Regist />
+      {/* login page */}
+      <section className="w-[1440px] h-[842.98px]">
         <div className="container mx-auto">
-          <form onSubmit={handleSubmit}>
-            <div className="w-full h-screen flex flex-col justify-center items-center">
-              <div>
-                <label htmlFor="namaDepan">Nama Depan</label>
-                <input
-                  type="text"
-                  id="namaDepan"
-                  name="namaDepan"
-                  placeholder="masukan nama depan anda"
+          <div className="flex">
+            <div className="w-[720px] h-[842.98px] bg-red-500 flex justify-center items-center">
+              <div className="w-[508px] h-[313px]">
+                <img
+                  src="/public/LoginSvg1.svg"
+                  alt="svg"
+                  className="self-center w-full h-full"
                 />
               </div>
-              <div>
-                <label htmlFor="namaBelakang">Nama Belakang</label>
-                <input
-                  type="text"
-                  id="namaBelakang"
-                  name="namaBelakang"
-                  placeholder="masukan nama belakang anda"
-                />
-              </div>
-              <button>save</button>
             </div>
-          </form>
-          <div className="flex flex-col justify-center items-center">
-            <h2>Name terdeteksi</h2>
-            {state.data.register.map((item) => (
-              <h1 key={item.namaDepan}>{item.namaDepan}</h1>
-            ))}
+            <div className="w-[720px] h-[842.98px] bg-red-500 flex justify-center items-center">
+              <div className="py-[250px]">
+                <form action=""></form>
+              </div>
+            </div>
           </div>
         </div>
       </section>
