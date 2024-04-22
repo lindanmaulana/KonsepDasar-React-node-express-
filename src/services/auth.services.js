@@ -15,14 +15,24 @@ export const formRegist = async (data, callback) => {
 
 export const formLogin = async (data) => {
   try {
+    // validate inputan
+    if(data.username.trim() === '' || data.password.trim() === '') {
+      throw new Error("Nilai yang di input tidak benar!!")
+    } else {
+      // Hit api
       const res = await axios.post(`${baseUrl}/login`, data)
+
+      // Throw jika error memuat data
       if(!res.data) {
         throw new Error("Gagal memuat data di server")
       }
-  
+
       return res.data
+    }
+
+
     } catch(err) {
-      console.log(err)
+      console.error("Terjadi kesalahan!!", err)
     }
   }
 

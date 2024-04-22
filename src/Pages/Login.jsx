@@ -15,9 +15,12 @@ const Login = () => {
   // state count id
   const [count, setCount] = useState(1);
 
+  // state error
+  const [error, setError] = useState(null);
+
+  // Handle inputan & hit api
   const handleForm = async (event) => {
     event.preventDefault();
-    setCount(count + 1);
 
     // Input dari form login user
     const data = {
@@ -28,8 +31,15 @@ const Login = () => {
 
     // validate username & password
     if (data.username && data.password) {
+      setCount(count + 1);
+
       // Hit api
-      await formLogin(data).then((res) => dispatch(register(res)));
+      await formLogin(data).then((res) => {
+        // validate nilai res
+        if (res) dispatch(register(res));
+      });
+    } else {
+      setError("Data tidak boleh kosong!!!");
     }
   };
 
@@ -117,7 +127,7 @@ const Login = () => {
                     </div>
 
                     {/* password */}
-                    <div className="w-full h-[45px] flex items-center border border-[#5867DD] rounded-[50px]  ">
+                    <div className="relative w-full h-[45px] flex items-center border border-[#5867DD] rounded-[50px]  ">
                       <label htmlFor="password">
                         <img
                           src="../public/loginPassword.svg"
@@ -132,7 +142,11 @@ const Login = () => {
                         placeholder="Password"
                         className="placeholder:text-[#5867DD] ml-[12px] bg-transparent outline-none "
                       />
+                    {error && (
+                      <p className="text-[10px] text-red-600">{error}</p>
+                    )}
                     </div>
+
 
                     {/* remember password */}
                     <div className="w-[120.28px] flex gap-x-[8px] ml-[2px]">
@@ -172,6 +186,26 @@ const Login = () => {
             </div>
           </div>
         </div>
+
+        {/* footer content */}
+        <footer className="fixed bottom-0 w-full">
+          <div className="absolute bottom-2 right-0 w-[860px] flex justify-between px-8">
+            <p className="w-[236px] text-[14px] text-[#5867DD] ">
+              © 2023 | All rights reserved
+            </p>
+            <ul className="flex gap-x-8 text-[14px] text-[#5867DD] ">
+              <li>
+                <a href="">Privacy</a>
+              </li>
+              <li>
+                <a href="">Legal</a>
+              </li>
+              <li>
+                <a href="">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </footer>
       </section>
     </>
   );
