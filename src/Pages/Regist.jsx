@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { login, register } from "../redux/slices/cartSlices";
 import { useEffect } from "react";
-import { formLogin } from "../services/auth.services";
+import { formRegist } from "../services/auth.services";
 
 const Regist = () => {
   // Hook redux untuk dispatch
@@ -31,7 +31,7 @@ const Regist = () => {
   useEffect(() => {
     const data = state.data.register;
 
-    formLogin(data, (callback) => {
+    formRegist(data, (callback) => {
       console.log(callback);
     });
   }, [state.data]);

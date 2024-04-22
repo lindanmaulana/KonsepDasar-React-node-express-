@@ -5,6 +5,7 @@ const cartSlices = createSlice({
   initialState: {
     data: {
       register: [],
+      login: [],
       cartItem: []
     },
     userLogin: false,
