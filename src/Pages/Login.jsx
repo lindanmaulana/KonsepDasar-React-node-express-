@@ -96,7 +96,7 @@ const Login = () => {
                 >
                   {/* form title */}
                   <div className="w-[300px] flex justify-between items-center ">
-                    <img src="../public/loginRight1.svg" alt="logo" />
+                    <img src="../public/login/loginRight1.svg" alt="logo" />
                     <h2 className="font-bold text-[35px] text-[#000000]">
                       Digital Admin
                     </h2>
@@ -118,7 +118,7 @@ const Login = () => {
                     <div className="w-full h-[45px] flex items-center border border-[#5867DD] rounded-[50px]  ">
                       <label htmlFor="username">
                         <img
-                          src="../public/loginUsername.svg"
+                          src="../public/login/loginUsername.svg"
                           alt="username"
                           className="w-[25px] h-[25px] ml-[22.53px]"
                         />
@@ -136,7 +136,7 @@ const Login = () => {
                     <div className="relative w-full h-[45px] flex items-center border border-[#5867DD] rounded-[50px]  ">
                       <label htmlFor="password">
                         <img
-                          src="../public/loginPassword.svg"
+                          src="../public/login/loginPassword.svg"
                           alt="username"
                           className="w-[25px] h-[25px] ml-[22.53px]"
                         />
@@ -177,7 +177,7 @@ const Login = () => {
                     {/* forgot password */}
                     <div className="w-[140.28px] flex gap-x-[8px] mx-auto">
                       <img
-                        src="../public/loginForgot.svg"
+                        src="../public/login/loginForgot.svg"
                         alt="remember"
                         className="self-center w-3.5 h-3.5"
                       />
