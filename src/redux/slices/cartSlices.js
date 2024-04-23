@@ -6,7 +6,7 @@ const cartSlices = createSlice({
     data: {
       register: [],
       login: [],
-      cartItem: []
+      cartItem: [],
     },
     userLogin: false,
   },
@@ -14,7 +14,7 @@ const cartSlices = createSlice({
     register: (state, action) => {
       state.data.register.push(action.payload)
     },
-    login: (status) => {
+    statusLogin: (status) => {
       status.userLogin = true;
     },
     addToCart: (state, action) => {
@@ -23,5 +23,5 @@ const cartSlices = createSlice({
   },
 });
 
-export const { addToCart, login, register } = cartSlices.actions;
+export const { addToCart, register, statusLogin } = cartSlices.actions;
 export default cartSlices.reducer;

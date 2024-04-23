@@ -1,9 +1,8 @@
-import Login from "./Pages/Login";
 
 
 function App() {
   return (
-    <Login />
+    <h1>Landing page</h1>
   );
 }
 

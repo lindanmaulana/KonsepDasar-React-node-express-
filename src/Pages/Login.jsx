@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { formLogin } from "../services/auth.services";
 import { useDispatch, useSelector } from "react-redux";
-import { register } from "../redux/slices/cartSlices";
+import { register, statusLogin } from "../redux/slices/cartSlices";
 
 const Login = () => {
   // state handle read password
@@ -10,8 +10,8 @@ const Login = () => {
 
   // state redux dispatch
   const dispatch = useDispatch();
-  const state = useSelector((state) => state.cart).data.register;
-
+  const state = useSelector((state) => state.cart);
+  
   // state count id
   const [count, setCount] = useState(1);
 
@@ -37,6 +37,12 @@ const Login = () => {
       await formLogin(data).then((res) => {
         // validate nilai res
         if (res) dispatch(register(res));
+
+        // send status login
+        if (res === "login_berhasil") dispatch(statusLogin());
+        console.log({
+          res: res,
+        });
       });
     } else {
       setError("Data tidak boleh kosong!!!");
@@ -142,11 +148,10 @@ const Login = () => {
                         placeholder="Password"
                         className="placeholder:text-[#5867DD] ml-[12px] bg-transparent outline-none "
                       />
-                    {error && (
-                      <p className="text-[10px] text-red-600">{error}</p>
-                    )}
+                      {error && (
+                        <p className="text-[10px] text-red-600">{error}</p>
+                      )}
                     </div>
-
 
                     {/* remember password */}
                     <div className="w-[120.28px] flex gap-x-[8px] ml-[2px]">
