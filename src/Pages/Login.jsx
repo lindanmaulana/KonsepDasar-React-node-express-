@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { formLogin } from "../services/auth.services";
 import { useDispatch, useSelector } from "react-redux";
-import { register, statusLogin } from "../redux/slices/cartSlices";
+import { register } from "../redux/slices/cartSlices";
 
 const Login = () => {
   // state handle read password
@@ -18,7 +18,10 @@ const Login = () => {
   // state error
   const [error, setError] = useState(null);
 
-  // Handle inputan & hit api
+  // state login
+  const [validLogin, setValidLogin] = useState('')
+
+  /* Handle inputan & hit api */
   const handleForm = async (event) => {
     event.preventDefault();
 
@@ -39,7 +42,7 @@ const Login = () => {
         if (res) dispatch(register(res));
 
         // send status login
-        if (res === "login_berhasil") dispatch(statusLogin());
+        if (res === "login_berhasil") setValidLogin(res);
         console.log({
           res: res,
         });
@@ -48,6 +51,13 @@ const Login = () => {
       setError("Data tidak boleh kosong!!!");
     }
   };
+
+  // swap pages
+  useEffect(() => {
+    if(validLogin){
+      window.location.href = "/";
+    }
+  }, [validLogin])
 
   // handle read password
   const handlePassword = () => {
@@ -148,9 +158,12 @@ const Login = () => {
                         placeholder="Password"
                         className="placeholder:text-[#5867DD] ml-[12px] bg-transparent outline-none "
                       />
+
+                      {/* Element error */}
                       {error && (
                         <p className="text-[10px] text-red-600">{error}</p>
                       )}
+                      
                     </div>
 
                     {/* remember password */}

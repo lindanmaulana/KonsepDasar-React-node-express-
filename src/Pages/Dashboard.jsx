@@ -175,7 +175,7 @@ const Dashboard = () => {
 
           {/* Dashboard */}
           <div className="w-full h-[55px] flex justify-end border-b-[2px]">
-            <div className="self-center w-[70%] flex justify-between">
+            <div className="self-center w-[70%] flex justify-between mx-5">
               <h3 className="left-[300px] self-center text[24px] font-bold ">
                 Dashboard
               </h3>
@@ -195,7 +195,7 @@ const Dashboard = () => {
 
           {/*  */}
           <div className="w-full flex justify-end items-center">
-            <div className="w-full max-w-[1300px] bg-[#EEEEEE] flex flex-wrap py-7 gap-7">
+            <div className="w-[75%] bg-[#EEEEEE] flex flex-wrap py-7 gap-7">
               {/* menu 1 */}
               <div className="w-[410px] h-[250px] bg-[#FFFFFF] flex p-[30px] rounded-[40px]">
                 <div className="w-[230px] flex flex-col">

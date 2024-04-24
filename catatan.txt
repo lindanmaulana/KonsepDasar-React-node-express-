@@ -1,0 +1,173 @@
+<div className="w-full bg-[#EEEEEE] flex flex-wrap py-7 px-7 gap-4">
+                {/* menu 1 */}
+                <div className="w-[300px] h-[160px] bg-[#FFFFFF] flex p-[30px] rounded-[20px]">
+                  <div className="w-[200px] flex flex-col">
+                    <h2 className="text-[20px] font-extrabold text-[#5867DD] ">
+                      8
+                    </h2>
+                    <h3 className="text-[15px] font-extrabold text-[#000000]  ">
+                      Groups Pending Setup
+                    </h3>
+                    <p className="text-[10px] text-[#000000] ">
+                      Total Groups Pending for Approval
+                    </p>
+                  </div>
+                  <div className="w-[100px] flex">
+                    <img
+                      src="../../public/dashboard/groups/groupsPending.svg"
+                      alt="Groups pending"
+                      className="self-center"
+                    />
+                  </div>
+                </div>
+
+                {/* menu 2 */}
+                <div className="w-[300px] h-[160px] bg-[#FFFFFF] flex p-[30px] rounded-[20px]">
+                  <div className="w-[200px] flex flex-col">
+                    <h2 className="text-[20px] font-extrabold text-[#5867DD] ">
+                      28
+                    </h2>
+                    <h3 className="text-[15px] font-extrabold text-[#000000]  ">
+                      Groups
+                    </h3>
+                    <p className="text-[10px] text-[#000000] ">Total Groups</p>
+                  </div>
+                  <div className="w-[100px] flex">
+                    <img
+                      src="../../public/dashboard/groups/groups.svg"
+                      alt="Groups"
+                      className="self-center"
+                    />
+                  </div>
+                </div>
+
+                {/* menu 3 */}
+                <div className="w-[300px] h-[160px] bg-[#FFFFFF] flex p-[30px] rounded-[20px]">
+                  <div className="w-[200px] flex flex-col">
+                    <h2 className="text-[20px] font-extrabold text-[#5867DD] ">
+                      28
+                    </h2>
+                    <h3 className="text-[15px] font-extrabold text-[#000000]  ">
+                      Sub Groups
+                    </h3>
+                    <p className="text-[10px] text-[#000000] ">
+                      Total Sub Groups
+                    </p>
+                  </div>
+                  <div className="w-[100px] flex">
+                    <img
+                      src="../../public/dashboard/groups/subGroups.svg"
+                      alt="subGroups"
+                      className="self-center"
+                    />
+                  </div>
+                </div>
+
+                {/* menu 4 */}
+                <div className="w-[300px] h-[160px] bg-[#FFFFFF] flex p-[30px] rounded-[20px]">
+                  <div className="w-[200px] flex flex-col">
+                    <h2 className="text-[20px] font-extrabold text-[#5867DD] ">
+                      38
+                    </h2>
+                    <h3 className="text-[15px] font-extrabold text-[#000000]  ">
+                      Institutes
+                    </h3>
+                    <p className="text-[10px] text-[#000000] ">
+                      Total Institutes
+                    </p>
+                  </div>
+                  <div className="w-[100px] flex">
+                    <img
+                      src="../../public/dashboard/groups/institutes.svg"
+                      alt="institutes"
+                      className="self-center"
+                    />
+                  </div>
+                </div>
+
+                {/* menu 5 */}
+                <div className="w-[300px] h-[160px] bg-[#FFFFFF] flex p-[30px] rounded-[20px]">
+                  <div className="w-[200px] flex flex-col">
+                    <h2 className="text-[20px] font-extrabold text-[#5867DD] ">
+                      349
+                    </h2>
+                    <h3 className="text-[15px] font-extrabold text-[#000000]  ">
+                      Staff
+                    </h3>
+                    <p className="text-[10px] text-[#000000] ">Total Onboard</p>
+                  </div>
+                  <div className="w-[100px] flex">
+                    <img
+                      src="../../public/dashboard/groups/staff.svg"
+                      alt="staff"
+                      className="self-center"
+                    />
+                  </div>
+                </div>
+
+                {/* menu 6 */}
+                <div className="w-[300px] h-[160px] bg-[#FFFFFF] flex p-[30px] rounded-[20px]">
+                  <div className="w-[200px] flex flex-col">
+                    <h2 className="text-[20px] font-extrabold text-[#5867DD] ">
+                      95
+                    </h2>
+                    <h3 className="text-[15px] font-extrabold text-[#000000]  ">
+                      Surveys In Progress
+                    </h3>
+                    <p className="text-[10px] text-[#000000] ">
+                      Surveys in Progress for Submission
+                    </p>
+                  </div>
+                  <div className="w-[100px] flex">
+                    <img
+                      src="../../public/dashboard/groups/surveys.svg"
+                      alt="surveys"
+                      className="self-center"
+                    />
+                  </div>
+                </div>
+
+                {/* menu 7 */}
+                <div className="w-[300px] h-[160px] bg-[#FFFFFF] flex p-[30px] rounded-[20px]">
+                  <div className="w-[200px] flex flex-col">
+                    <h2 className="text-[20px] font-extrabold text-[#5867DD] ">
+                      9271
+                    </h2>
+                    <h3 className="text-[15px] font-extrabold text-[#000000]  ">
+                      Feedbacks
+                    </h3>
+                    <p className="text-[10px] text-[#000000] ">
+                    Total Captured
+                    </p>
+                  </div>
+                  <div className="w-[100px] flex">
+                    <img
+                      src="../../public/dashboard/groups/feedbacks.svg"
+                      alt="feedbacks"
+                      className="self-center"
+                    />
+                  </div>
+                </div>
+
+                {/* menu 8 */}
+                <div className="w-[300px] h-[160px] bg-[#FFFFFF] flex p-[30px] rounded-[20px]">
+                  <div className="w-[200px] flex flex-col">
+                    <h2 className="text-[20px] font-extrabold text-[#5867DD] ">
+                      29
+                    </h2>
+                    <h3 className="text-[15px] font-extrabold text-[#000000]  ">
+                      Pending Feedbacks for Approval
+                    </h3>
+                    <p className="text-[10px] text-[#000000] ">
+                    Pending Feedbacks for Approval
+                    </p>
+                  </div>
+                  <div className="w-[100px] flex">
+                    <img
+                      src="../../public/dashboard/groups/pending.svg"
+                      alt="pending"
+                      className="self-center"
+                    />
+                  </div>
+                </div>
+              </div>
