@@ -75,13 +75,13 @@ const Login = () => {
             {/* login left */}
             <div className="relative w-[960px] h-screen flex justify-center items-center">
               <img
-                src="../public/Layer.svg"
+                src="../../public/Layer.svg"
                 alt="layer"
                 className="absolute top-0 w-full h-full"
               />
               <div className="w-[508px] h-[313px] z-50">
                 <img
-                  src="/public/LoginSvg1.svg"
+                  src="../../public/login/LoginSvg1.svg"
                   alt="svg"
                   className="self-center w-full h-full"
                 />
@@ -96,7 +96,7 @@ const Login = () => {
                 >
                   {/* form title */}
                   <div className="w-[300px] flex justify-between items-center ">
-                    <img src="../public/login/loginRight1.svg" alt="logo" />
+                    <img src="../../public/login/loginRight1.svg" alt="logo" />
                     <h2 className="font-bold text-[35px] text-[#000000]">
                       Digital Admin
                     </h2>
@@ -118,7 +118,7 @@ const Login = () => {
                     <div className="w-full h-[45px] flex items-center border border-[#5867DD] rounded-[50px]  ">
                       <label htmlFor="username">
                         <img
-                          src="../public/login/loginUsername.svg"
+                          src="../../public/login/loginUsername.svg"
                           alt="username"
                           className="w-[25px] h-[25px] ml-[22.53px]"
                         />
