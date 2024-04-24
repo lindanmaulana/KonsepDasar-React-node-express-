@@ -55,7 +55,7 @@ const Login = () => {
   // swap pages
   useEffect(() => {
     if(validLogin){
-      window.location.href = "/";
+      window.location.href = "/dashboard";
     }
   }, [validLogin])
 
@@ -163,7 +163,7 @@ const Login = () => {
                       {error && (
                         <p className="text-[10px] text-red-600">{error}</p>
                       )}
-                      
+
                     </div>
 
                     {/* remember password */}
