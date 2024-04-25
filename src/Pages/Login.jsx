@@ -11,7 +11,7 @@ const Login = () => {
   // state redux dispatch
   const dispatch = useDispatch();
   const state = useSelector((state) => state.cart);
-  
+
   // state count id
   const [count, setCount] = useState(1);
 
@@ -19,7 +19,7 @@ const Login = () => {
   const [error, setError] = useState(null);
 
   // state login
-  const [validLogin, setValidLogin] = useState('')
+  const [validLogin, setValidLogin] = useState("");
 
   /* Handle inputan & hit api */
   const handleForm = async (event) => {
@@ -36,17 +36,21 @@ const Login = () => {
     if (data.username && data.password) {
       setCount(count + 1);
 
-      // Hit api
-      await formLogin(data).then((res) => {
-        // validate nilai res
-        if (res) dispatch(register(res));
+      try {
+        await formLogin(data).then((res) => {
+          // validate nilai res
+          if (res) dispatch(register(res));
 
-        // send status login
-        if (res === "login_berhasil") setValidLogin(res);
-        console.log({
-          res: res,
+          // send status login
+          if (res === "login_berhasil") {
+            setValidLogin(res);
+          } else {
+            throw new Error(res);
+          }
         });
-      });
+      } catch (error) {
+        console.error("server error", error);
+      }
     } else {
       setError("Data tidak boleh kosong!!!");
     }
@@ -54,10 +58,10 @@ const Login = () => {
 
   // swap pages
   useEffect(() => {
-    if(validLogin){
+    if (validLogin) {
       window.location.href = "/dashboard";
     }
-  }, [validLogin])
+  }, [validLogin]);
 
   // handle read password
   const handlePassword = () => {
@@ -163,7 +167,6 @@ const Login = () => {
                       {error && (
                         <p className="text-[10px] text-red-600">{error}</p>
                       )}
-
                     </div>
 
                     {/* remember password */}
