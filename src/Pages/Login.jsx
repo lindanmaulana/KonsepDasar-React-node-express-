@@ -33,10 +33,11 @@ const Login = () => {
     };
 
     // validate username & password
-    if (data.username && data.password) {
-      setCount(count + 1);
 
-      try {
+    try {
+      if (data.username && data.password) {
+        setCount(count + 1);
+
         await formLogin(data).then((res) => {
           // validate nilai res
           if (res) dispatch(register(res));
@@ -48,11 +49,13 @@ const Login = () => {
             throw new Error(res);
           }
         });
-      } catch (error) {
-        console.error("server error", error);
+        
+      } else {
+        setError("Data tidak boleh kosong!!!");
       }
-    } else {
-      setError("Data tidak boleh kosong!!!");
+    } catch (error) {
+      console.error("server error", error);
+      setError(error);
     }
   };
 
