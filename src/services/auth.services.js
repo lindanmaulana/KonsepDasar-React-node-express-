@@ -4,9 +4,10 @@ const baseUrl = import.meta.env.VITE_BASEURL;
 export const formRegist = async (data, callback) => {
   try {
     if (data) {
-      const res = await axios.post(`${baseUrl}/login`, data);
-      callback(res);
+      const res = await axios.post(`${baseUrl}/regist`, data);
+      callback(true, res);
     }
+
   } catch (err) {
     console.log(err);
   }
