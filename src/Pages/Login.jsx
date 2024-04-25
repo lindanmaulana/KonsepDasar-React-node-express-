@@ -12,9 +12,6 @@ const Login = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.cart);
 
-  // state count id
-  const [count, setCount] = useState(1);
-
   // state error
   const [error, setError] = useState(null);
 
@@ -27,7 +24,6 @@ const Login = () => {
 
     // Input dari form login user
     const data = {
-      id: count,
       username: event.target.username.value,
       password: event.target.password.value,
     };
@@ -36,23 +32,25 @@ const Login = () => {
 
     try {
       if (data.username && data.password) {
-        setCount(count + 1);
 
         await formLogin(data).then((res) => {
           // validate nilai res
           if (res) dispatch(register(res));
 
           // send status login
-          if (res === "login_berhasil") {
+          if (res === data.username) {
             setValidLogin(res);
           } else {
             throw new Error(res);
           }
+
+          console.log(res)
         });
         
       } else {
         setError("Data tidak boleh kosong!!!");
       }
+
     } catch (error) {
       console.error("server error", error);
       setError(error);
@@ -82,7 +80,8 @@ const Login = () => {
   }, [read]);
 
   console.log(state);
-  console.log(count);
+  console.log("ini data valid Login" , validLogin)
+
   return (
     <>
       {/* login page */}

@@ -17,7 +17,7 @@ const Regist = () => {
   // HANDLE FORM SUBMIT
   const handleSubmit = async (event) => {
     const data = {
-      nama: event.target.username.value,
+      username: event.target.username.value,
       password: event.target.password.value,
       asal: event.target.asal.value,
     };
