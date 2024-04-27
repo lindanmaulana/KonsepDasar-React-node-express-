@@ -1,70 +1,82 @@
-import { useSelector } from "react-redux";
 import { useEffect, useRef, useState } from "react";
-import { formRegist } from "../services/auth.services";
-import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
-import { AiOutlineHome } from "react-icons/ai";
+import { formLogin } from "../services/auth.services";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { login } from "../redux/slices/cartSlices";
 
-const Regist = () => {
-  // Hook redux untuk dispatch
-  // const dispatch = useDispatch();
+const LoginPage = () => {
+  // state handle read password
+  const password = useRef(null);
+  const [read, setRead] = useState(false);
 
-  // Hook redux untuk mengambil data store
-  // const state = useSelector((state) => state.cart);
+  // state redux dispatch
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state.cart);
 
-  // state password
-  const [readPassword, setReadPassword] = useState(false);
+  // state error
+  const [error, setError] = useState(null);
 
-  // HANDLE FORM SUBMIT
-  const handleSubmit = async (event) => {
+  // state loading
+  const [loading, setLoading] = useState('')
+
+  /* Handle inputan & hit api */
+  const handleForm = async (event) => {
+    event.preventDefault();
+    setLoading('connection loading..')
+
+    // Input dari form login user
     const data = {
       username: event.target.username.value,
       password: event.target.password.value,
-      asal: event.target.asal.value,
     };
 
+    // validate username & password
+
     try {
-      if (data) {
-        await formRegist(data, (status, results) => {
-          if (status) console.log("Register succesfully", results);
+      if (data.username && data.password) {
+
+        await formLogin(data).then((res) => {
+          // validate nilai res
+          if (res) dispatch(login(data.username));
+
+          // send status login
+          if (res === data.username) {
+            window.location.href = "/dashboard"
+          } else {
+            window.location.href = "/login";
+            throw new Error("Akun tidak sesuai");
+          }
+        }).finally(() => {
+          setLoading('')
         });
+        
       } else {
-        throw new Error("Data kosong!!");
+        setError("Data tidak boleh kosong!!!");
       }
+
     } catch (error) {
-      console.error("Terjadi kesalahan: ", error);
+      console.error("server ", error);
+      setError(error);
     }
-
-    // Add data store redux
-    // dispatch(
-    //   register({
-    //     namaDepan: event.target.namaDepan.value,
-    //     namaBelakang: event.target.namaBelakang.value,
-    //   })
-    // );
   };
 
-  // HANDLE PASSWORD
-  const password = useRef(null);
-  const handlePassword = (event) => {
-    event.preventDefault();
-    if (!readPassword) {
-      password.current.type = "text";
-      setReadPassword(true);
+  // handle read password
+  const handlePassword = () => {
+    if (read === false) {
+      setRead(true);
     } else {
-      password.current.type = "password";
-      setReadPassword(false);
+      setRead(false);
     }
   };
 
-  //   mengirim data ke server
-  // useEffect(() => {
-  //   const data = state.data.register;
+  useEffect(() => {
+    read
+      ? (password.current.type = "text")
+      : (password.current.type = "password");
+  }, [read]);
 
-  //   formRegist(data, (callback) => {
-  //     console.log(callback);
-  //   });
-  // }, [state.data]);
+  console.log(state);
+
 
   return (
     <>
@@ -72,6 +84,7 @@ const Regist = () => {
       <section className="w-full h-screen ">
         <div className="container mx-auto ">
           <div className="flex">
+
             {/* login left */}
             <div className="relative w-[960px] h-screen flex justify-center items-center">
               <img
@@ -87,12 +100,12 @@ const Regist = () => {
                 />
               </div>
             </div>
+
             {/* login right */}
             <div className="w-[960px] h-screen flex justify-center items-center">
               <div className="w-[508px] ">
-                {/* FORM */}
                 <form
-                  onSubmit={handleSubmit}
+                  onSubmit={handleForm}
                   className="flex flex-col justify-center items-center gap-y-[30px]"
                 >
                   {/* form title */}
@@ -106,14 +119,14 @@ const Regist = () => {
                   {/* form opening */}
                   <div className="w-[337.28px] text-center">
                     <h2 className="text-[28px] font-bold text-[#000000]">
-                      Wellcome To Digital Admin
+                      Wellcome Back! Admin
                     </h2>
                     <p className="text-[15px] text-[#777777]">
-                      register your account
+                      Sign in to continue to Income Tax. <span>{loading}</span>
                     </p>
                   </div>
 
-                  {/* form register */}
+                  {/* form input */}
                   <div className="w-[371.22px] flex flex-col gap-y-[18px]  ">
                     {/* username */}
                     <div className="w-full h-[45px] flex items-center border border-[#5867DD] rounded-[50px]  ">
@@ -126,31 +139,11 @@ const Regist = () => {
                       </label>
                       <input
                         type="text"
-                        name="username"
                         id="username"
                         placeholder="Username"
                         className="placeholder:text-[#5867DD] ml-[12px] bg-transparent outline-none "
                         required
                       />
-                    </div>
-
-                    {/* asal */}
-                    <div className="relative w-full h-[45px] flex items-center border border-[#5867DD] rounded-[50px]  ">
-                      <label htmlFor="asal">
-                        <AiOutlineHome className="w-[25px] h-[25px] ml-[22.53px] text-[#5867DD]" />
-                      </label>
-                      <input
-                        type="text"
-                        name="asal"
-                        id="asal"
-                        placeholder="Asal"
-                        className="placeholder:text-[#5867DD] ml-[12px] bg-transparent outline-none "
-                      />
-
-                      {/* Element error */}
-                      {/* {error && (
-                        <p className="text-[10px] text-red-600">{error}</p>
-                      )} */}
                     </div>
 
                     {/* password */}
@@ -164,42 +157,52 @@ const Regist = () => {
                       </label>
                       <input
                         type="password"
-                        name="password"
                         ref={password}
                         id="password"
                         placeholder="Password"
                         className="placeholder:text-[#5867DD] ml-[12px] bg-transparent outline-none "
                       />
-                      <button
-                        onClick={handlePassword}
-                        className="absolute right-5 self-center text-[14px] text-[#5867DD]"
-                      >
-                        {readPassword ? <IoEyeOutline /> : <IoEyeOffOutline />}
-                      </button>
 
                       {/* Element error */}
-                      {/* {error && (
+                      {error && (
                         <p className="text-[10px] text-red-600">{error}</p>
-                      )} */}
+                      )}
+                    </div>
+
+                    {/* remember password */}
+                    <div className="w-full flex justify-between">
+                    <div className="self-center w-[120.28px] flex gap-x-[8px] ml-[2px]">
+                      <input
+                        type="checkbox"
+                        name=""
+                        onChange={handlePassword}
+                        id=""
+                        className="self-center w-3 h-3 mt-[1px]"
+                      />
+                      <p className="self-center text-[14px] text-[#5867DD]">
+                        Remember me
+                      </p>
+                    </div>
+                    <Link to={"/register"} className="self-center text-[14px] text-[#5867DD]">Register</Link>
                     </div>
 
                     {/* button login */}
                     <div className="w-full h-[45px] flex items-center bg-[#5867DD] rounded-[50px]">
                       <button className="w-full h-full text-[18px] text-[#FFFFFF]">
-                        REGISTER
+                        LOGIN
                       </button>
                     </div>
 
                     {/* forgot password */}
-                    <div className="w-[200px] flex gap-x-[8px] mx-auto">
+                    <div className="w-[140.28px] flex gap-x-[8px] mx-auto">
                       <img
                         src="../public/login/loginForgot.svg"
                         alt="remember"
                         className="self-center w-3.5 h-3.5"
                       />
-                      <Link to={"/login"} className="text-[14px] text-[#5867DD]">
-                        already have an account ?
-                      </Link>
+                      <p className="text-[14px] text-[#5867DD]">
+                        Forgot Password?
+                      </p>
                     </div>
                   </div>
                 </form>
@@ -232,4 +235,4 @@ const Regist = () => {
   );
 };
 
-export default Regist;
+export default LoginPage;

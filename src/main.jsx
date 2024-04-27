@@ -6,9 +6,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import ErrorPage from "./404.jsx";
 import store from "./redux/store.js";
-import Dashboard from "./Pages/Dashboard.jsx";
-import Login from "./Pages/Login.jsx";
-import Regist from "./Pages/Regist.jsx";
+import DashboardPage from "./Pages/DashboardPage.jsx";
+import RegisterPage from "./Pages/RegisterPage.jsx";
+import LoginPage from "./Pages/LoginPage.jsx";
 import SideBar from "./components/Elements/MenuBar/Index.jsx";
 
 const router = createBrowserRouter([
@@ -19,15 +19,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/register",
-    element: <Regist />,
+    element: <RegisterPage />,
   },
   {
     path: "/login",
-    element: <Login />,
+    element: <LoginPage />,
   },
   {
     path: "/dashboard",
-    element: <Dashboard />,
+    element: <DashboardPage />,
   },
   {
     path: "/side",
