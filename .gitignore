@@ -24,4 +24,5 @@ dist-ssr
 *.sw?
 *.env?
 .env
-.txt
+maintenance.txt
+catatan.txt
