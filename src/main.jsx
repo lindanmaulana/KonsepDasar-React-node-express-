@@ -9,7 +9,6 @@ import store from "./redux/store.js";
 import DashboardPage from "./Pages/DashboardPage.jsx";
 import RegisterPage from "./Pages/RegisterPage.jsx";
 import LoginPage from "./Pages/LoginPage.jsx";
-import SideBar from "./components/Elements/MenuBar/Index.jsx";
 
 const router = createBrowserRouter([
   {
@@ -28,10 +27,6 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <DashboardPage />,
-  },
-  {
-    path: "/side",
-    element: <SideBar />,
   },
 ]);
 
