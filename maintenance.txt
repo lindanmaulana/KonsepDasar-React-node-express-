@@ -1,0 +1,4 @@
+1. case 1
+    - atomic design bagian LoginPage & RegisterPage
+    - clean code yang masih berantakan
+    - bersihkan bagian svg di public yang tidak di gunakan
