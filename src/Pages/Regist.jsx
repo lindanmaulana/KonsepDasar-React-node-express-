@@ -3,13 +3,14 @@ import { useEffect, useRef, useState } from "react";
 import { formRegist } from "../services/auth.services";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import { AiOutlineHome } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const Regist = () => {
   // Hook redux untuk dispatch
   // const dispatch = useDispatch();
 
   // Hook redux untuk mengambil data store
-  const state = useSelector((state) => state.cart);
+  // const state = useSelector((state) => state.cart);
 
   // state password
   const [readPassword, setReadPassword] = useState(false);
@@ -57,13 +58,13 @@ const Regist = () => {
   };
 
   //   mengirim data ke server
-  useEffect(() => {
-    const data = state.data.register;
+  // useEffect(() => {
+  //   const data = state.data.register;
 
-    formRegist(data, (callback) => {
-      console.log(callback);
-    });
-  }, [state.data]);
+  //   formRegist(data, (callback) => {
+  //     console.log(callback);
+  //   });
+  // }, [state.data]);
 
   return (
     <>
@@ -196,9 +197,9 @@ const Regist = () => {
                         alt="remember"
                         className="self-center w-3.5 h-3.5"
                       />
-                      <p className="text-[14px] text-[#5867DD]">
+                      <Link to={"/login"} className="text-[14px] text-[#5867DD]">
                         already have an account ?
-                      </p>
+                      </Link>
                     </div>
                   </div>
                 </form>

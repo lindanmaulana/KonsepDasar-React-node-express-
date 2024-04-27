@@ -14,14 +14,20 @@ const cartSlices = createSlice({
     register: (state, action) => {
       state.data.register.push(action.payload)
     },
+
+    login: (state, action) => {
+      state.data.login.push(action.payload)
+    },
+
     statusLogin: (status) => {
       status.userLogin = true;
     },
+
     addToCart: (state, action) => {
       state.data.cartItem.push(action.payload);
     },
   },
 });
 
-export const { addToCart, register, statusLogin } = cartSlices.actions;
+export const { addToCart, register, login, statusLogin } = cartSlices.actions;
 export default cartSlices.reducer;

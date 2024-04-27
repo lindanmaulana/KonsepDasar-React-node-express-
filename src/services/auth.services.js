@@ -1,6 +1,7 @@
 import axios from "axios";
 const baseUrl = import.meta.env.VITE_BASEURL;
 
+// Register Page
 export const formRegist = async (data, callback) => {
   try {
     if (data) {
@@ -13,7 +14,7 @@ export const formRegist = async (data, callback) => {
   }
 };
 
-
+// Login Page
 export const formLogin = async (data) => {
   try {
     // validate inputan
@@ -38,6 +39,15 @@ export const formLogin = async (data) => {
   }
 
 
-  export const formData = () => {
+  // All page (sumber data acount)
+  export const formData = async() => {
+    try {
+      const res = await axios.get(`${baseUrl}/acount`)
 
+      if(!res.data) throw new Error("Data is undefined")
+
+      return res.data
+    } catch(error) {
+      console.error("Error load data: ", error)
+    }
   }

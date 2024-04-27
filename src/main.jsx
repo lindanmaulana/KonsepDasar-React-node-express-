@@ -9,6 +9,7 @@ import store from "./redux/store.js";
 import Dashboard from "./Pages/Dashboard.jsx";
 import Login from "./Pages/Login.jsx";
 import Regist from "./Pages/Regist.jsx";
+import SideBar from "./components/Elements/MenuBar/Index.jsx";
 
 const router = createBrowserRouter([
   {
@@ -18,16 +19,20 @@ const router = createBrowserRouter([
   },
   {
     path: "/register",
-    element: <Regist />
+    element: <Regist />,
   },
   {
     path: "/login",
-    element: <Login />
+    element: <Login />,
   },
   {
     path: "/dashboard",
-    element: <Dashboard />
-  }
+    element: <Dashboard />,
+  },
+  {
+    path: "/side",
+    element: <SideBar />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

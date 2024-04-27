@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { formLogin } from "../services/auth.services";
 import { useDispatch, useSelector } from "react-redux";
-import { register } from "../redux/slices/cartSlices";
+import { Link } from "react-router-dom";
+import { login } from "../redux/slices/cartSlices";
 
 const Login = () => {
   // state handle read password
@@ -15,12 +16,13 @@ const Login = () => {
   // state error
   const [error, setError] = useState(null);
 
-  // state login
-  const [validLogin, setValidLogin] = useState("");
+  // state loading
+  const [loading, setLoading] = useState('')
 
   /* Handle inputan & hit api */
   const handleForm = async (event) => {
     event.preventDefault();
+    setLoading('connection loading..')
 
     // Input dari form login user
     const data = {
@@ -35,16 +37,17 @@ const Login = () => {
 
         await formLogin(data).then((res) => {
           // validate nilai res
-          if (res) dispatch(register(res));
+          if (res) dispatch(login(data.username));
 
           // send status login
           if (res === data.username) {
-            setValidLogin(res);
+            window.location.href = "/dashboard"
           } else {
-            throw new Error(res);
+            window.location.href = "/login";
+            throw new Error("Akun tidak sesuai");
           }
-
-          console.log(res)
+        }).finally(() => {
+          setLoading('')
         });
         
       } else {
@@ -52,17 +55,10 @@ const Login = () => {
       }
 
     } catch (error) {
-      console.error("server error", error);
+      console.error("server ", error);
       setError(error);
     }
   };
-
-  // swap pages
-  useEffect(() => {
-    if (validLogin) {
-      window.location.href = "/dashboard";
-    }
-  }, [validLogin]);
 
   // handle read password
   const handlePassword = () => {
@@ -80,7 +76,7 @@ const Login = () => {
   }, [read]);
 
   console.log(state);
-  console.log("ini data valid Login" , validLogin)
+
 
   return (
     <>
@@ -88,6 +84,7 @@ const Login = () => {
       <section className="w-full h-screen ">
         <div className="container mx-auto ">
           <div className="flex">
+
             {/* login left */}
             <div className="relative w-[960px] h-screen flex justify-center items-center">
               <img
@@ -103,6 +100,7 @@ const Login = () => {
                 />
               </div>
             </div>
+
             {/* login right */}
             <div className="w-[960px] h-screen flex justify-center items-center">
               <div className="w-[508px] ">
@@ -124,7 +122,7 @@ const Login = () => {
                       Wellcome Back! Admin
                     </h2>
                     <p className="text-[15px] text-[#777777]">
-                      Sign in to continue to Income Tax.
+                      Sign in to continue to Income Tax. <span>{loading}</span>
                     </p>
                   </div>
 
@@ -172,7 +170,8 @@ const Login = () => {
                     </div>
 
                     {/* remember password */}
-                    <div className="w-[120.28px] flex gap-x-[8px] ml-[2px]">
+                    <div className="w-full flex justify-between">
+                    <div className="self-center w-[120.28px] flex gap-x-[8px] ml-[2px]">
                       <input
                         type="checkbox"
                         name=""
@@ -183,6 +182,8 @@ const Login = () => {
                       <p className="self-center text-[14px] text-[#5867DD]">
                         Remember me
                       </p>
+                    </div>
+                    <Link to={"/register"} className="self-center text-[14px] text-[#5867DD]">Register</Link>
                     </div>
 
                     {/* button login */}
