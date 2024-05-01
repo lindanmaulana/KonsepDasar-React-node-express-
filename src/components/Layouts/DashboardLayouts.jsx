@@ -10,7 +10,7 @@ const DashboardLayouts = () => {
         <MenuDashboard />
 
         {/* Header Dashboard */}
-        <HeaderDashboard username="Lindan" />
+        <HeaderDashboard username="Lindan Maulana" />
 
         {/* Content dashboard */}
         <ContentDashboard />

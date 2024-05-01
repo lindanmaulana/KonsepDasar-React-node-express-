@@ -4,6 +4,8 @@ import { formRegist } from "../services/auth.services";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import { AiOutlineHome } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import ImageForm from "../components/Elements/Form/ImageForm";
+import AuthLayouts from "../components/Layouts/AuthLayouts";
 
 const RegisterPage = () => {
   // Hook redux untuk dispatch
@@ -73,7 +75,8 @@ const RegisterPage = () => {
         <div className="container mx-auto ">
           <div className="flex">
             {/* login left */}
-            <div className="relative w-[960px] h-screen flex justify-center items-center">
+            <ImageForm />
+            {/* <div className="relative w-[960px] h-screen flex justify-center items-center">
               <img
                 src="../../public/Layer.svg"
                 alt="layer"
@@ -86,8 +89,12 @@ const RegisterPage = () => {
                   className="self-center w-full h-full"
                 />
               </div>
-            </div>
+            </div> */}
+
             {/* login right */}
+            <AuthLayouts handleForm={handleSubmit}>
+
+            </AuthLayouts>
             <div className="w-[960px] h-screen flex justify-center items-center">
               <div className="w-[508px] ">
                 {/* FORM */}
@@ -146,11 +153,6 @@ const RegisterPage = () => {
                         placeholder="Asal"
                         className="placeholder:text-[#5867DD] ml-[12px] bg-transparent outline-none "
                       />
-
-                      {/* Element error */}
-                      {/* {error && (
-                        <p className="text-[10px] text-red-600">{error}</p>
-                      )} */}
                     </div>
 
                     {/* password */}

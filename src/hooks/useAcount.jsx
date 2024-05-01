@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 export const useAcount = () => {
     const [username, setUsername] = useState('')
-    
+
     const state = useSelector(state => state.cart.data.login)
 
     useEffect(() => {

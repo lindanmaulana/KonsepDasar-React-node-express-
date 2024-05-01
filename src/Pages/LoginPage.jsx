@@ -3,11 +3,12 @@ import { formLogin } from "../services/auth.services";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { login } from "../redux/slices/cartSlices";
+import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
+import ImageForm from "../components/Elements/Form/ImageForm";
 
 const LoginPage = () => {
   // state handle read password
   const password = useRef(null);
-  const [read, setRead] = useState(false);
 
   // state redux dispatch
   const dispatch = useDispatch();
@@ -17,12 +18,15 @@ const LoginPage = () => {
   const [error, setError] = useState(null);
 
   // state loading
-  const [loading, setLoading] = useState('')
+  const [loading, setLoading] = useState("");
+
+  // read
+  const [readPassword, setReadPassword] = useState(false);
 
   /* Handle inputan & hit api */
   const handleForm = async (event) => {
     event.preventDefault();
-    setLoading('connection loading..')
+    setLoading("connection loading..");
 
     // Input dari form login user
     const data = {
@@ -31,52 +35,44 @@ const LoginPage = () => {
     };
 
     // validate username & password
-
     try {
       if (data.username && data.password) {
+        await formLogin(data)
+          .then((res) => {
+            // validate nilai res
+            if (res) dispatch(login(data.username));
 
-        await formLogin(data).then((res) => {
-          // validate nilai res
-          if (res) dispatch(login(data.username));
-
-          // send status login
-          if (res === data.username) {
-            window.location.href = "/dashboard"
-          } else {
-            window.location.href = "/login";
-            throw new Error("Akun tidak sesuai");
-          }
-        }).finally(() => {
-          setLoading('')
-        });
-        
+            // send status login
+            if (res === data.username) {
+              window.location.href = "/dashboard";
+            } else {
+              window.location.href = "/login";
+              throw new Error("Akun tidak sesuai");
+            }
+          })
+          .finally(() => {
+            setLoading("");
+          });
       } else {
         setError("Data tidak boleh kosong!!!");
       }
-
     } catch (error) {
       console.error("server ", error);
       setError(error);
     }
   };
 
-  // handle read password
-  const handlePassword = () => {
-    if (read === false) {
-      setRead(true);
+  // Lihat password dan sembunyikan password
+  const handlePassword = (event) => {
+    event.preventDefault();
+    if (!readPassword) {
+      password.current.type = "text";
+      setReadPassword(true);
     } else {
-      setRead(false);
+      password.current.type = "password";
+      setReadPassword(false);
     }
   };
-
-  useEffect(() => {
-    read
-      ? (password.current.type = "text")
-      : (password.current.type = "password");
-  }, [read]);
-
-  console.log(state);
-
 
   return (
     <>
@@ -84,9 +80,9 @@ const LoginPage = () => {
       <section className="w-full h-screen ">
         <div className="container mx-auto ">
           <div className="flex">
-
             {/* login left */}
-            <div className="relative w-[960px] h-screen flex justify-center items-center">
+            <ImageForm />
+            {/* <div className="relative w-[960px] h-screen flex justify-center items-center">
               <img
                 src="../../public/Layer.svg"
                 alt="layer"
@@ -99,7 +95,7 @@ const LoginPage = () => {
                   className="self-center w-full h-full"
                 />
               </div>
-            </div>
+            </div> */}
 
             {/* login right */}
             <div className="w-[960px] h-screen flex justify-center items-center">
@@ -162,28 +158,17 @@ const LoginPage = () => {
                         placeholder="Password"
                         className="placeholder:text-[#5867DD] ml-[12px] bg-transparent outline-none "
                       />
+                      <button
+                        onClick={handlePassword}
+                        className="absolute right-5 self-center text-[14px] text-[#5867DD]"
+                      >
+                        {readPassword ? <IoEyeOutline /> : <IoEyeOffOutline />}
+                      </button>
 
                       {/* Element error */}
                       {error && (
                         <p className="text-[10px] text-red-600">{error}</p>
                       )}
-                    </div>
-
-                    {/* remember password */}
-                    <div className="w-full flex justify-between">
-                    <div className="self-center w-[120.28px] flex gap-x-[8px] ml-[2px]">
-                      <input
-                        type="checkbox"
-                        name=""
-                        onChange={handlePassword}
-                        id=""
-                        className="self-center w-3 h-3 mt-[1px]"
-                      />
-                      <p className="self-center text-[14px] text-[#5867DD]">
-                        Remember me
-                      </p>
-                    </div>
-                    <Link to={"/register"} className="self-center text-[14px] text-[#5867DD]">Register</Link>
                     </div>
 
                     {/* button login */}
@@ -193,16 +178,24 @@ const LoginPage = () => {
                       </button>
                     </div>
 
-                    {/* forgot password */}
-                    <div className="w-[140.28px] flex gap-x-[8px] mx-auto">
-                      <img
-                        src="../public/login/loginForgot.svg"
-                        alt="remember"
-                        className="self-center w-3.5 h-3.5"
-                      />
-                      <p className="text-[14px] text-[#5867DD]">
-                        Forgot Password?
-                      </p>
+                    {/* Link switch page */}
+                    <div className="w-full flex justify-between">
+                      <div className="w-[140.28px] flex gap-x-[8px]">
+                        <img
+                          src="../public/login/loginForgot.svg"
+                          alt="remember"
+                          className="self-center w-3.5 h-3.5"
+                        />
+                        <p className="text-[14px] text-[#5867DD]">
+                          Forgot Password?
+                        </p>
+                      </div>
+                      <Link
+                        to={"/register"}
+                        className="self-center text-[14px] text-[#5867DD]"
+                      >
+                        Register
+                      </Link>
                     </div>
                   </div>
                 </form>
