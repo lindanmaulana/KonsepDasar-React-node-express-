@@ -2,3 +2,21 @@
     - atomic design bagian LoginPage & RegisterPage
     - clean code yang masih berantakan
     - bersihkan bagian svg di public yang tidak di gunakan
+
+
+2. case 2
+    Di bagian fragments
+    - file login jadi authlayouts membungkus apa aja yang akan di masukan ke dalam login itu
+    - di dalam authlayouts itu ada beberapa komponents seperti button login dan button swap page
+
+3. case 3
+    Di bagian elements
+    - file Index.jsx itu adalah component input yang akan di masukan ke dalam file login/register pada fragments
+
+4. case 4
+    "/maintenance"
+    sedang memaintenance layout loginPage lihat perbedaanya ada di layouth atas dan form nya
+
+5. case 5
+    - bagian login-mahasiswa 
+    - mereusable component login admin dan login mahasiswa

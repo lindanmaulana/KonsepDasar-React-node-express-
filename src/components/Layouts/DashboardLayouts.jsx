@@ -1,8 +1,19 @@
-import MenuDashboard from "../Elements/MenuBar/Index";
-import HeaderDashboard from "../Elements/HeaderBar/Index";
-import ContentDashboard from "../Elements/ContentBar/Index";
+import MenuDashboard from "../Fragments/Dashboard/MenuDashboard";
+import HeaderDashboard from "../Fragments/Dashboard/HeaderDashboard";
+import ContentDashboard from "../Fragments/Dashboard/ContentDashboard";
+import { acount } from "../../services/auth.services";
+import { useEffect, useState } from "react";
 
 const DashboardLayouts = () => {
+  const [name, setName] = useState('')
+  useEffect(() => {
+    acount().then(data => {
+      const datas = data.payload.datas;
+
+      datas.map(name => setName(name.username))
+    })
+  }, [])
+
   return (
     <section className="bg-[#EEEEEE]">
       <div className="container mx-auto">
@@ -10,7 +21,7 @@ const DashboardLayouts = () => {
         <MenuDashboard />
 
         {/* Header Dashboard */}
-        <HeaderDashboard username="Lindan Maulana" />
+        <HeaderDashboard username={name} />
 
         {/* Content dashboard */}
         <ContentDashboard />

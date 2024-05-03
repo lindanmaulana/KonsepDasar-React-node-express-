@@ -1,4 +1,4 @@
-import MenuContent from "./MenuContent";
+import MenuContent from "../../Elements/DashboardElements/MenuContent";
 
 const ContentDashboard = () => {
   return (
@@ -14,8 +14,9 @@ const ContentDashboard = () => {
           />
 
           <MenuContent
+            href="Students"
             amount="28"
-            title="Groups"
+            title="Students"
             description="Total Groups"
             src="dashboard/groups/groups.svg"
           />
@@ -41,7 +42,7 @@ const ContentDashboard = () => {
             amount="95"
             title="Surveys in Progress"
             description="Surveys in Progress for Submission"
-            src="dashboard/groups/surveyes.svg"
+            src="dashboard/groups/surveys.svg"
           />
           <MenuContent
             amount="9271"

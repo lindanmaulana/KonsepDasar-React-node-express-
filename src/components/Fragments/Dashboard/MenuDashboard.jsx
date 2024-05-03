@@ -1,6 +1,6 @@
 import { IoQrCodeOutline } from "react-icons/io5";
-import ListBar from "./ListBar";
-import MenuBar from "./MenuBar";
+import ListBar from "../../Elements/DashboardElements/ListBar";
+import MenuBar from "../../Elements/DashboardElements/MenuBar";
 
 const MenuDashboard = () => {
   return (
@@ -21,19 +21,37 @@ const MenuDashboard = () => {
 
         {/* LIST BAR */}
         <ListBar titleList="REPORTS">
-            <MenuBar src="dashboard/reportsPending.svg" titleMenu="Pending Reports"/>
-            <MenuBar src="dashboard/reportsSubmitted.svg" titleMenu="Submitted Reports"/>
+          <MenuBar
+            src="dashboard/reportsPending.svg"
+            titleMenu="Pending Reports"
+          />
+          <MenuBar
+            src="dashboard/reportsSubmitted.svg"
+            titleMenu="Submitted Reports"
+          />
         </ListBar>
 
         <ListBar titleList="CLIENTS">
-            <MenuBar src="dashboard/clientsView.svg" titleMenu="View / Add Groups"/>
+          <MenuBar
+            src="dashboard/clientsView.svg"
+            titleMenu="View / Add Groups"
+          />
         </ListBar>
 
         <ListBar titleList="DATASET">
-            <MenuBar src="dashboard/datasetEntity.svg" titleMenu="1. Entity Types"/>
-            <MenuBar src="dashboard/datasetPackages.svg" titleMenu="2. Packages"/>
-            <MenuBar src="dashboard/datasetChange.svg" titleMenu="Change Password"/>
-            <MenuBar src="dashboard/datasetSign.svg" titleMenu="Sign Out"/>
+          <MenuBar
+            src="dashboard/datasetEntity.svg"
+            titleMenu="1. Entity Types"
+          />
+          <MenuBar
+            src="dashboard/datasetPackages.svg"
+            titleMenu="2. Packages"
+          />
+          <MenuBar
+            src="dashboard/datasetChange.svg"
+            titleMenu="Change Password"
+          />
+          <MenuBar src="dashboard/datasetSign.svg" titleMenu="Sign Out" />
         </ListBar>
       </div>
     </div>
