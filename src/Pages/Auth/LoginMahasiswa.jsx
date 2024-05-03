@@ -1,12 +1,17 @@
 import { useState } from "react";
 import { formLoginMahasiswa } from "../../services/auth.services";
 import LoginFragments from "../../components/Fragments/Auth/LoginFragments";
+import { useDispatch } from "react-redux";
+import { login } from "../../redux/slices/cartSlices";
 
 const LoginMahasiswa = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState("");
   const [error, setError] = useState("");
+
+
+  const dispatch = useDispatch()
 
   const handleUsername = () => {
     setUsername(event.target.value);
@@ -30,7 +35,7 @@ const LoginMahasiswa = () => {
         await formLoginMahasiswa(data)
           .then((results) => {
             if(results === data.username) window.location.href = "/dashboard"
-
+            dispatch(login(results))
           })
           .finally(() => {
             setLoading("");

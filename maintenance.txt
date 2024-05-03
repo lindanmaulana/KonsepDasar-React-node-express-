@@ -20,3 +20,8 @@
 5. case 5
     - bagian login-mahasiswa 
     - mereusable component login admin dan login mahasiswa
+
+6. case 6
+    cara agar username itu di kirim ke dashboard untuk title dashboardnya
+    - bisa pakai redux
+    - atau pakai end point lagi
