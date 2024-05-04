@@ -16,7 +16,7 @@ const DashboardLayouts = () => {
 
   return (
     <section className="bg-[#EEEEEE]">
-      <div className="container mx-auto">
+      <div className="mx-auto">
         {/* Menu bar */}
         <MenuDashboard />
 

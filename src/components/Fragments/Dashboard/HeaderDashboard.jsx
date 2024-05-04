@@ -1,12 +1,13 @@
 import { BsChevronDown } from "react-icons/bs";
+import { Link } from "react-router-dom";
 const HeaderDashboard = (props) => {
     const {username} = props
     return(
         <div className="w-full h-[55px] bg-[#FFFFFF] flex justify-end border-b-[2px] fixed top-0 right-0">
             <div className="self-center w-[900px] flex justify-between mx-5">
-              <h3 className="left-[300px] self-center text[24px] font-bold ">
+              <Link to={"#"} className="left-[300px] self-center text[24px] font-bold shadow shadow-[#5867DD] text-[#5867DD] px-4 py-1 rounded">
                 Dashboard
-              </h3>
+              </Link>
               <div className="self-center flex gap-x-2 top-2 right-6">
                 <h3 className="self-center text-[14px] text-light">
                   Wellcome <span className="font-semibold">{username}</span>

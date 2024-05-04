@@ -1,4 +1,4 @@
-const MenuContent = (props) => {
+const DashboardList = (props) => {
   const { href, amount, title, description, src } = props;
 
   const handleDashboardPage = () => {
@@ -22,4 +22,4 @@ const MenuContent = (props) => {
   );
 };
 
-export default MenuContent;
+export default DashboardList;

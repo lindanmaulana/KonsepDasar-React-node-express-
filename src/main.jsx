@@ -1,21 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import ErrorPage from "./404.jsx";
 import store from "./redux/store.js";
-import DashboardPage from "./Pages/DashboardPage.jsx";
+import DashboardPage from "./Pages/DashboardList/DashboardPage.jsx";
 import RegisterPage from "./Pages/Auth/RegisterPage.jsx";
-import Students from "./Pages/Content/Students.jsx";
+import Students from "./Pages/DashboardList/Students.jsx";
 import LoginMahasiswa from "./Pages/Auth/LoginMahasiswa.jsx";
 import LoginAdmin from "./Pages/Auth/LoginAdmin.jsx";
+import LandingPage from "./Pages/Landing/LandingPage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <LandingPage />,
     errorElement: <ErrorPage />,
   },
   {
@@ -24,11 +24,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/login-mahasiswa",
-    element: <LoginMahasiswa />
+    element: <LoginMahasiswa />,
   },
   {
     path: "/login-admin",
-    element: <LoginAdmin />
+    element: <LoginAdmin />,
   },
   {
     path: "/dashboard",
@@ -36,7 +36,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard/students",
-    element: <Students />
+    element: <Students />,
   },
 ]);
 
