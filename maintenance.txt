@@ -27,9 +27,27 @@ BACK END
     - bisa pakai redux
     - atau pakai end point lagi
 
+7. case 7
+    Cari algoritma untuk sistem mengetahui role dan perbedaan dashboard untuk role admin / mahasiswa
+
 
 DATABASE
+    Cari algoritma pergantian role dan db role nya
+
+    
 
 FRONT END
 1. case 1
     - Responsive bagian landing page
+
+2. case 2
+    - Koneksikan button learn more di landing page
+
+3. case 3
+    - Responsivekan Auth page & dashboard
+
+
+
+UPDATE TERAKHIR
+    - Responsive landing page
+    - koneksi button login -> login-mahasiswa / login-admin
