@@ -17,7 +17,7 @@ const LoginAdmin = () => {
 
   const handleLoginAdmin = async (event) => {
     event.preventDefault();
-    
+
     setLoading("Connection loading...");
 
     const data = {
@@ -46,8 +46,8 @@ const LoginAdmin = () => {
       value={{ username: username, password: password }}
       loading={loading ? "Connection loading...." : ""}
       error={error}
-      link="login"
-      profesi="Admin"
+      link="login-mahasiswa"
+      loginToRole="Mahasiswa"
     />
   );
 };

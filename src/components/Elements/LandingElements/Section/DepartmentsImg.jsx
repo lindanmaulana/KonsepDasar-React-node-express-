@@ -1,11 +1,11 @@
 const DepartmentsImg = (props) => {
-    const {src} = props
+  const { src } = props;
   return (
-    <div>
+    <div className="w-full max-w-[400px] overflow-hidden shadow-lg shadow-slate-400 rounded-[16px]">
       <img
-        src={`/src/assets/images/departments/${src}`}
+        src={`/src/assets/images/LandingImages/departments/${src}`}
         alt=""
-        className="rounded-[16px] shadow-lg shadow-black/40"
+        className="w-full h-full "
       />
     </div>
   );

@@ -1,3 +1,4 @@
+BACK END
 1. case 1
     - atomic design bagian LoginPage & RegisterPage
     - clean code yang masih berantakan
@@ -25,3 +26,10 @@
     cara agar username itu di kirim ke dashboard untuk title dashboardnya
     - bisa pakai redux
     - atau pakai end point lagi
+
+
+DATABASE
+
+FRONT END
+1. case 1
+    - Responsive bagian landing page

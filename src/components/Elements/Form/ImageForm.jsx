@@ -1,6 +1,6 @@
 const ImageForm = () => {
   return (
-    <div className="relative w-[960px] h-screen flex justify-center items-center">
+    <div className="relative w-[960px] h-screen lg:flex justify-center items-center hidden ">
       <img
         src="/public/Layer.svg"
         alt="layer"

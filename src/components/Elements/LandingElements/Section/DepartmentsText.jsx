@@ -2,7 +2,7 @@ const DepartmentsText = (props) => {
     const {title, description} = props
   return (
     <div>
-      <div className="w-[592px] px-[48px] py-[50px] flex flex-col justify-center items-start gap-y-[20px]">
+      <div className="max-w-[600px] md:w-[400px] lg:w-[592px] px-[40px] py-[50px] flex flex-col justify-center items-start gap-y-[20px]">
         <h3 className="text-[30px] text-[#030F4B] font-bold ">
           {title}
         </h3>

@@ -59,8 +59,8 @@ const LoginMahasiswa = () => {
         value={{ username: username, password: password }}
         loading={loading ? "Connection loading...." : ""}
         error={error}
-        link="login"
-        profesi="Admin"
+        link="login-admin"
+        loginToRole="Admin"
       />
     </>
   );

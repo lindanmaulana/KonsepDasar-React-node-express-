@@ -1,9 +1,9 @@
 const OfferList = (props) => {
     const {title, description} = props
   return (
-    <div className="w-[316px] flex flex-col justify-center items-center gap-y-[10px]">
+    <div className="w-full flex flex-col justify-center items-center gap-y-[10px] lg:w-[316px]">
       <img
-        src="/src/assets/images/List-menu/work.webp"
+        src="/src/assets/images/LandingImages/List-menu/work.webp"
         alt=""
         className="rounded-[8px] shadow-lg shadow-black/40"
       />

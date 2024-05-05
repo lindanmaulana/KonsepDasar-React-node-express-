@@ -1,21 +1,22 @@
-import "../../App.css";
-import LandingHeader from "../../components/Fragments/Landing/Header/LandingHeader";
 import HeroBanner from "../../components/Fragments/Landing/Section/HeroBanner";
 import Offer from "../../components/Fragments/Landing/Section/Offer";
 import Departments from "../../components/Fragments/Landing/Section/Departments";
 import MoreThan from "../../components/Fragments/Landing/Section/MoreThan";
 import Interested from "../../components/Fragments/Landing/Section/Interested";
 import LandingFooter from "../../components/Fragments/Landing/Footer/LandingFooter";
+import HeaderLayouts from "../../components/Layouts/Landing/HeaderLayouts";
 const LandingPage = () => {
+  console.log(document.documentElement.clientWidth);
   return (
     <>
-    <LandingHeader />
+      {/* Header */}
+      <HeaderLayouts />
 
       {/* hero banner */}
       <HeroBanner />
 
       {/* offer */}
-     <Offer />
+      <Offer />
 
       {/* departments */}
       <Departments />

@@ -1,7 +1,7 @@
 const FooterForm = () => {
   return (
     <footer className="fixed bottom-0 w-full">
-      <div className="absolute bottom-2 right-0 w-[860px] flex justify-between px-8">
+      <div className="absolute bottom-2 right-0 w-full max-w-[860px] flex justify-between px-8">
         <p className="w-[236px] text-[14px] text-[#5867DD] ">
           © 2023 | All rights reserved
         </p>

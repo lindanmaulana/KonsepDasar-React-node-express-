@@ -5,7 +5,7 @@ import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 const LoginFragments = (props) => {
-    const {title, handleForm, onUsername, onPassword, value, loading, error, link, profesi} = props
+    const {title, handleForm, onUsername, onPassword, value, loading, error, link, loginToRole} = props
 
     const password = useRef(null)
     const [readPassword, setReadPassword] = useState(false)
@@ -53,7 +53,7 @@ const LoginFragments = (props) => {
               {/* form start */}
               <form
                 onSubmit={handleForm}
-                className="flex justify-center items-center"
+                className="flex items-center justify-center"
               >
                 <div className="w-[371.22px] flex flex-col gap-y-[18px]  ">
                   {/* username */}
@@ -115,22 +115,22 @@ const LoginFragments = (props) => {
                   </div>
 
                   {/* Link switch page */}
-                  <div className="w-full flex justify-between">
+                  <div className="flex justify-between w-full">
                     <div className="w-[140.28px] flex gap-x-[8px]">
                       <img
                         src="/public/authIcons/authForgot.svg"
                         alt="remember"
                         className="self-center w-3.5 h-3.5"
                       />
-                      <p className="text-[14px] text-[#5867DD]">
-                        Forgot Password?
-                      </p>
+                      <Link to="/" className="text-[14px] text-[#5867DD]">
+                        Back to Home?
+                      </Link>
                     </div>
                     <Link
                       to={`/${link}`}
                       className="self-center text-[14px] text-[#5867DD]"
                     >
-                      Log in as a {profesi}
+                      Log in as a {loginToRole}
                     </Link>
                   </div>
                 </div>

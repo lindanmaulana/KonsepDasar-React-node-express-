@@ -4,12 +4,12 @@ import DepartmentsText from "../../../Elements/LandingElements/Section/Departmen
 
 const Departments = () => {
   return (
-    <section id="departments" className="pt-[70px] pb-[67px] ">
-      <div className="container mx-auto">
+    <section id="departments" className="pt-[70px] pb-[20px] md:pb-[67px]">
+      <div className="container">
         <h2 className="text-center text-[40px] text-[#030F4B] font-bold mb-[80px]">
           Explore the departments
         </h2>
-        <DepartmentsList>
+        <DepartmentsList flexDirection="flex-col">
           <DepartmentsImg src="departments-image.png" />
           <DepartmentsText
             title="Chemical Engineering"
@@ -19,7 +19,7 @@ const Departments = () => {
           />
         </DepartmentsList>
 
-        <DepartmentsList>
+        <DepartmentsList flexDirection="flex-col-reverse">
           <DepartmentsText
             title="Computer Science"
             description="Our computer science department has multiple learning paths,
@@ -29,7 +29,7 @@ const Departments = () => {
           <DepartmentsImg src="departments-image.png" />
         </DepartmentsList>
 
-        <DepartmentsList>
+        <DepartmentsList flexDirection="flex-col">
           <DepartmentsImg src="departments-image.png" />
           <DepartmentsText
             title="Business & Economics"
