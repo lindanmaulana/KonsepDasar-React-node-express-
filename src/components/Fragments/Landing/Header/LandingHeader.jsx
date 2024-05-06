@@ -24,8 +24,8 @@ const LandingHeader = (props) => {
           </ul>
         </nav>
 
-        <div className="hidden md:block bg-[#FD4455] rounded-[8px] text-[#FCFCFF] hover:opacity-50 btn-transition">
-          <button onClick={handleLogin} className="px-[40px] py-[10px]">Login</button>
+        <div className="hidden md:block bg-[#FD4455] rounded-[8px] text-[#FCFCFF] hover:opacity-50 btn-transition z-[99]">
+          <button onClick={handleLogin} className="px-[40px] py-[10px]">{loading ? "Back" : "Login"}</button>
         </div>
       </div>
 

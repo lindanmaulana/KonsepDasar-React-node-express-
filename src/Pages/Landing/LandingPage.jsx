@@ -1,10 +1,10 @@
 import HeroBanner from "../../components/Fragments/Landing/Section/HeroBanner";
-import Offer from "../../components/Fragments/Landing/Section/Offer";
-import Departments from "../../components/Fragments/Landing/Section/Departments";
 import MoreThan from "../../components/Fragments/Landing/Section/MoreThan";
 import Interested from "../../components/Fragments/Landing/Section/Interested";
 import LandingFooter from "../../components/Fragments/Landing/Footer/LandingFooter";
 import HeaderLayouts from "../../components/Layouts/Landing/HeaderLayouts";
+import DepartmentsLayouts from "../../components/Layouts/Landing/DepartmentsLayouts";
+import OfferLayouts from "../../components/Layouts/Landing/OfferLayouts";
 const LandingPage = () => {
   console.log(document.documentElement.clientWidth);
   return (
@@ -16,10 +16,10 @@ const LandingPage = () => {
       <HeroBanner />
 
       {/* offer */}
-      <Offer />
+      <OfferLayouts />
 
       {/* departments */}
-      <Departments />
+      <DepartmentsLayouts />
 
       {/* more than */}
       <MoreThan />

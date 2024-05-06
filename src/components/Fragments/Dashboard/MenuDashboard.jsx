@@ -5,14 +5,14 @@ import MenuBar from "../../Elements/DashboardElements/MenuBar";
 const MenuDashboard = () => {
   return (
     <div className="w-[300px] h-[98%] rounded-3xl my-auto bg-[#5867DD] fixed left-2 top-2 z-50">
-      <div className="h-full px-4 flex flex-col justify-center items-center gap-y-4">
+      <div className="flex flex-col items-center justify-center h-full px-4 gap-y-4">
         {/* HEADER */}
-        <div className="w-full flex justify-center items-center">
+        <div className="flex items-center justify-center w-full">
           <img src="../../public/dashboard/dashboardMenu.svg" alt="dashboard" />
         </div>
 
         {/* HERO BAR */}
-        <div className="w-full justify-start border-b border-slate-400 pb-2 group">
+        <div className="justify-start w-full pb-2 border-b border-slate-400 group">
           <button className="flex gap-x-3 w-full py-2 rounded-xl my-auto bg-[#374BAE] scale-105 px-3">
             <IoQrCodeOutline className="self-center text-white scale-125" />
             <h2 className="text-[18px] text-[#FFFFFF]">Dashboard</h2>
@@ -51,7 +51,7 @@ const MenuDashboard = () => {
             src="dashboard/datasetChange.svg"
             titleMenu="Change Password"
           />
-          <MenuBar src="dashboard/datasetSign.svg" titleMenu="Sign Out" />
+          <MenuBar src="dashboard/datasetSign.svg" titleMenu="Sign Out" href=""/>
         </ListBar>
       </div>
     </div>

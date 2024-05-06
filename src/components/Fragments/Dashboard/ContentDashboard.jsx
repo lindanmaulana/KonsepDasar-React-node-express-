@@ -2,9 +2,9 @@ import DashboardList from "../../Elements/DashboardElements/DashboardList";
 
 const ContentDashboard = () => {
   return (
-    <div className="w-full h-full flex justify-end items-center bg-red-800">
+    <div className="flex items-center justify-end w-full h-full">
       {/* dahsboard List */}
-        <div className="w-[950px] h-full flex justify-center items-start mt-16">
+        <div className="flex items-start justify-center w-[80%] mt-16">
           <div className="w-full h-full bg-[#EEEEEE] flex flex-wrap gap-4 justify-center items-center">
             <DashboardList
               amount="8"
