@@ -1,25 +1,27 @@
 import { BsChevronDown } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { CgProfile } from "react-icons/cg";
 const HeaderDashboard = () => {
   return (
-    <div className="w-full py-3 bg-[#5867DD] flex fixed top-0">
-      <div className="flex self-center justify-center w-full mx-5">
-        <Link
-          to={"#"}
-          className="self-center text[24px] font-bold shadow shadow-[#5867DD] text-[#FFFFFF] px-4 py-1 rounded"
-        >
-          Dashboard
-        </Link>
+    <div className="flex w-full py-3 pt-5">
+      <div className="flex self-center justify-between w-full mx-8">
+        <div>
+          <Link
+            to={"#"}
+            className="self-center text-2xl font-bold text-[#374BAE]"
+          >
+            Dashboard
+          </Link>
+          <p className="self-center text-md text-[#374BAE]">
+            Hi, Wellcome In Dashboard
+          </p>
+        </div>
         <div className="flex self-center gap-x-2">
-          <h3 className="self-center text-[14px] text-light text-[#FFFFFF]">
+          <CgProfile className="self-center text-3xl text-[#374BAE]" />
+          <h3 className="self-center text-[14px] text-light text-slate-600">
             Wellcome <span className="font-semibold">Lindan</span>
           </h3>
-          <img
-            src="../../public/dashboard/dashboardAdmin.svg"
-            alt="admin"
-            className="rounded-full w-[40px]"
-          />
-          <button className="text-[#FFFFFF]">
+          <button className="text-slate-600">
             <BsChevronDown />
           </button>
         </div>

@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import { acount, formData } from "../services/auth.services";
-import { useSelector } from "react-redux";
-
+import { acount } from "../services/auth.services";
 const useAcount = () => {
     const [username, setUsername] = useState('')
     useEffect(() => {

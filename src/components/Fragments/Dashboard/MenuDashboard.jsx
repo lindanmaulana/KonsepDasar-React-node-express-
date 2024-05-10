@@ -1,8 +1,8 @@
 import DashboardItems from "../../Elements/DashboardElements/DashboardItems";
 const MenuDashboard = () => {
   return (
-    <div className="flex w-full h-full mt-12">
-      <div className="w-full h-full bg-[#EEEEEE] flex flex-wrap justify-start gap-x-[80px] items-center pl-8">
+    <div className="flex w-full h-full">
+      <div className="w-full h-full  flex flex-wrap justify-start gap-x-[80px] items-center pl-8">
         <DashboardItems
           amount="8"
           title="Explore Classes"
@@ -11,7 +11,7 @@ const MenuDashboard = () => {
         />
 
         <DashboardItems
-          href="Students"
+         to="Students"
           amount="12"
           title="Students"
           description="Total Students"
@@ -24,7 +24,7 @@ const MenuDashboard = () => {
           src="subGroups.svg"
         />
         <DashboardItems
-          href="college-lessons"
+         to="college-lessons"
           amount="38"
           title="College Lessons"
           description="A Number of College Courses"

@@ -3,11 +3,24 @@
 @tailwind utilities;
 
 @layer components {
-    .btn-login {
-        @apply w-[300px] rounded-sm px-10 py-2 transition-all duration-700 ease-in-out
-    }
+  .btn-login {
+    @apply w-[300px] rounded-sm px-10 py-2 transition-all duration-700 ease-in-out;
+  }
 
-    .btn-transition {
-        @apply transition-all duration-700 ease-in-out
-    }
+  .btn-transition {
+    @apply transition-all duration-700 ease-in-out;
+  }
+
+  .shadow-right-custom {
+    @apply shadow;
+    box-shadow: 4px 0 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .transition-global {
+    @apply transition-all duration-1000 ease-in-out
+  }
+
+  .sidebar-dashboard {
+    @apply self-center text-slate-400 group-hover:text-white
+  }
 }
