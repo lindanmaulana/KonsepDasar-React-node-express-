@@ -1,4 +1,4 @@
-const DepartmentsText = (props) => {
+const ClassText = (props) => {
     const {title, description} = props
   return (
     <div>
@@ -20,4 +20,4 @@ const DepartmentsText = (props) => {
   );
 };
 
-export default DepartmentsText;
+export default ClassText;

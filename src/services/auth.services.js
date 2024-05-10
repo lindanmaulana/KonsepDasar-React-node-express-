@@ -36,30 +36,30 @@ export const formLogin = async (data) => {
 };
 
 export const formLoginMahasiswa = async (data) => {
-  try {
-    const res = await axios.post(`${baseUrl}/login-mahasiswa`, data);
+  if(data) {
+    try {
+      const res = await axios.post(`${baseUrl}/login-mahasiswa`, data);
+      console.log({res})
 
-    if (!res.data) throw new Error("Akun anda salah");
+      return res
+    } catch (error) {
 
-    return res.data
-  } catch (error) {
-    console.log("Terjadi kesalahan", error);
-
-    return error
+      return error.response;
+    }
   }
 };
 
 export const formLoginAdmin = async (data) => {
-  try {
-    const res = await axios.post(`${baseUrl}/login-admin`, data);
+  if(data) {
+    try {
+      const res = await axios.post(`${baseUrl}/login-admin`, data);
+      console.log({res})
 
-    if (!res) throw new Error("Akun anda salah");
+      return res;
+    } catch (error) {
 
-    return res.data;
-  } catch (error) {
-    console.log(error);
-
-    return error
+      return error.response
+    }
   }
 };
 
@@ -85,7 +85,6 @@ export const acount = async () => {
     console.log("Gagal memuat data", err);
   }
 };
-
 
 // Admin sesion
 // export const AdminSesion = async() => {

@@ -9,6 +9,6 @@ export const getDataDepartments = async () => {
 
     return res.data.payload.datas;
   } catch (err) {
-    return err;
+    console.log("Gagal mengambil data")
   }
 };

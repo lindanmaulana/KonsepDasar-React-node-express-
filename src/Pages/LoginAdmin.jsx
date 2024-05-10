@@ -1,6 +1,7 @@
 import { useState } from "react";
-import LoginFragments from "../../components/Fragments/Auth/LoginFragments";
-import { formLoginAdmin } from "../../services/auth.services";
+import LoginFragments from "../components/Fragments/Auth/LoginFragments";
+import { formLoginAdmin } from "../services/auth.services";
+
 const LoginAdmin = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -11,11 +12,23 @@ const LoginAdmin = () => {
     setUsername(event.target.value);
   };
 
-  const handlePassword = () => {
+  const handlePassword = () => { 
     setPassword(event.target.value);
   };
 
-  const handleLoginAdmin = async (event) => {
+  const loginUser = async(data) => {
+    const res = await formLoginAdmin(data)
+
+    if(res.status !== 200) {
+      setError(res.data.text)
+
+    } else {
+      setLoading('')
+      window.location.href = "/dashboard"
+    }
+  }
+
+  const handleLoginAdmin = (event) => {
     event.preventDefault();
 
     setLoading("Connection loading...");
@@ -25,17 +38,9 @@ const LoginAdmin = () => {
       password: password,
     };
 
-    try {
-      await formLoginAdmin(data)
-        .then((results) => {
-          if(results === data.username) window.location.href = "/dashboard"
-        })
-        .finally(() => {
-          setLoading("");
-        });
-    } catch (err) {
-      setError(err);
-    }
+    setLoading("Logging in...")
+
+    loginUser(data)
   };
   return (
     <LoginFragments

@@ -45,7 +45,7 @@ const LoginFragments = (props) => {
                     Wellcome Back! {title}
                   </h2>
                   <p className="text-[15px] text-[#777777]">
-                    Sign in to continue to Income Tax. <span>{loading}</span>
+                    Sign in to continue to Income Tax. <span>{loading ? loading : ''}</span>
                   </p>
                 </div>
               </div>
@@ -100,13 +100,13 @@ const LoginFragments = (props) => {
                     >
                       {readPassword ? <IoEyeOutline /> : <IoEyeOffOutline />}
                     </button>
-
-                    {/* Element error */}
-                    {error && (
-                      <p className="text-[10px] text-red-600">{error}</p>
-                    )}
                   </div>
 
+                  {/* Element error */}
+                  {error && (
+                    <p className="text-[10px] text-red-600">{error}</p>
+                  )}
+                  
                   {/* button login */}
                   <div className="w-full h-[45px] flex items-center bg-[#5867DD] rounded-[50px]">
                     <button className="w-full h-full text-[18px] text-[#FFFFFF]">

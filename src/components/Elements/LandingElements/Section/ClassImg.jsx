@@ -1,4 +1,4 @@
-const DepartmentsImg = (props) => {
+const ClassImg = (props) => {
   const { src } = props;
   return (
     <div className="w-full max-w-[400px] overflow-hidden shadow-lg shadow-slate-400 rounded-[16px]">
@@ -11,4 +11,4 @@ const DepartmentsImg = (props) => {
   );
 };
 
-export default DepartmentsImg;
+export default ClassImg;

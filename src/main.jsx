@@ -5,12 +5,13 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import ErrorPage from "./404.jsx";
 import store from "./redux/store.js";
-import DashboardPage from "./Pages/Dashboard/DashboardPage.jsx";
 import RegisterPage from "./Pages/Auth/RegisterPage.jsx";
 import Students from "./Pages/Dashboard/Students.jsx";
-import LoginMahasiswa from "./Pages/Auth/LoginMahasiswa.jsx";
-import LoginAdmin from "./Pages/Auth/LoginAdmin.jsx";
-import LandingPage from "./Pages/Landing/LandingPage.jsx";
+import LoginMahasiswa from "./Pages/LoginMahasiswa.jsx";
+import LoginAdmin from "./Pages/LoginAdmin.jsx";
+import LandingPage from "./Pages/LandingPage.jsx";
+import DashboardPage from "./Pages/DashboardPage.jsx";
+import CollegeLessons from "./Pages/Dashboard/CollegeLessons.jsx";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
     path: "/dashboard/students",
     element: <Students />,
   },
+  {
+    path: "/dashboard/college-lessons",
+    element: <CollegeLessons/>
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

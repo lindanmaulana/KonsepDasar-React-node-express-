@@ -4,22 +4,12 @@ import { getDataOffer } from "../../../../services/offer.services";
 
 const Offer = () => {
   const [datas, setDatas] = useState([]);
-  const [error, setError] = useState("");
 
   useEffect(() => {
-    const fetch = async () => {
-      try {
-        await getDataOffer().then((res) => {
-          setDatas(res);
-        });
-      } catch (err) {
-        setError(err);
-      }
-    };
-    fetch();
+    getDataOffer().then((res) => {
+      setDatas(res);
+    });
   }, []);
-
-  console.log(datas);
   return (
     <>
       {datas ? (
@@ -32,7 +22,7 @@ const Offer = () => {
         ))
       ) : (
         <div>
-          <h2>Terjadi kesalahan Page error {error}</h2>
+          <h2>Terjadi kesalahan Data kosong</h2>
         </div>
       )}
     </>

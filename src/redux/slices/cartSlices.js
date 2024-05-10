@@ -9,6 +9,9 @@ const cartSlices = createSlice({
       cartItem: [],
     },
     userLogin: false,
+    dashboardItem: {
+      students: []
+    }
   },
   reducers: {
     register: (state, action) => {
@@ -18,16 +21,14 @@ const cartSlices = createSlice({
     login: (state, action) => {
       state.data.login.push(action.payload)
     },
-
-    statusLogin: (status) => {
-      status.userLogin = true;
+    dashboardStudents: (state, action) => {
+      state.dashboardItem.students.push(action.payload)
     },
-
     addToCart: (state, action) => {
       state.data.cartItem.push(action.payload);
     },
   },
 });
 
-export const { addToCart, register, login, statusLogin } = cartSlices.actions;
+export const { addToCart, register, login, statusLogin, dashboardStudents } = cartSlices.actions;
 export default cartSlices.reducer;

@@ -46,6 +46,9 @@ FRONT END
 3. case 3
     - Responsivekan Auth page & dashboard
 
+4. case 4 (new)
+    - Atur form login admin dan atur bagaimana cara pindah ke dashboard ketika benar
+
 
 
 UPDATE TERAKHIR
