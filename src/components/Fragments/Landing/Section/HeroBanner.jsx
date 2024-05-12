@@ -7,7 +7,7 @@ const HeroBanner = () => {
       <div className="container">
         <div className="flex flex-col items-center justify-center w-full h-screen px-2 lg:justify-center sm:px-0 md:flex-row ">
           <div className="flex flex-col justify-center items-start w-full h-screen gap-y-[40px] md:gap-y-[30px] lg:gap-y-[40px]">
-            <h1 className="text-[40px] sm:text-[50px] md:text-[60px] pr-2 md:pr-20 lg:pr-[50px] text-[#030F4B] font-bold leading-[40px] sm:leading-[50px] md:leading-[60px] ">
+            <h1 className="text-[40px] sm:text-[50px] md:text-[60px] pr-2 md:pr-20 lg:pr-[50px] text-[#374BAE] font-bold leading-[40px] sm:leading-[50px] md:leading-[60px] ">
               Informatics 01, Producing Talented Engineers.
             </h1>
             <p className="text-[15.8px] sm:text-[20px] text-[#52596E] font-medium pr-[12px] md:pr-[42px] lg:pr-[142px]  ">

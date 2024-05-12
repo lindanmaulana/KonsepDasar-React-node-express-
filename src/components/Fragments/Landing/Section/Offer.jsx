@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import OfferList from "../../../Elements/LandingElements/Section/OfferList";
 import { getDataOffer } from "../../../../services/offer.services";
+import OfferLayouts from "../../../Layouts/Landing/OfferLayouts";
 
 const Offer = () => {
   const [datas, setDatas] = useState([]);
@@ -11,7 +12,7 @@ const Offer = () => {
     });
   }, []);
   return (
-    <>
+    <OfferLayouts>
       {datas ? (
         datas.map((items) => (
           <OfferList
@@ -25,7 +26,7 @@ const Offer = () => {
           <h2>Terjadi kesalahan Data kosong</h2>
         </div>
       )}
-    </>
+    </OfferLayouts>
   );
 };
 

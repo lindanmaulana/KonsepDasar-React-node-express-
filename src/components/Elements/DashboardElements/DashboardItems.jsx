@@ -8,7 +8,7 @@ const DashboardItems = (props) => {
     <>
       <div
       onClick={handleDashboardPage}
-      className="w-[300px] bg-[#FFFFFF] flex p-[30px] rounded-[20px] text-left"
+      className="w-[300px] bg-[#FFFFFF] flex p-[30px] rounded-md text-left shadow-xl"
     >
       <div className="w-[200px] flex flex-col">
         <h2 className="text-[20px] font-extrabold text-[#5867DD] ">{amount}</h2>

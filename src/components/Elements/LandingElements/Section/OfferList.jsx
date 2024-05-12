@@ -7,7 +7,7 @@ const OfferList = (props) => {
         alt=""
         className="rounded-[8px] shadow-lg shadow-black/40"
       />
-      <h2 className="text-[24px] font-bold text-[#030F4B]  ">{title}</h2>
+      <h2 className="text-[24px] font-bold text-[#374BAE]  ">{title}</h2>
       <p className="text-[16px] font-medium text-[#52596E] ">
         {description}
       </p>

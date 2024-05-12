@@ -1,4 +1,4 @@
-const LandingList = (props) => {
+const ListNavbar = (props) => {
     const {href, title} = props
   return (
     <li>
@@ -9,4 +9,4 @@ const LandingList = (props) => {
   );
 };
 
-export default LandingList;
+export default ListNavbar;

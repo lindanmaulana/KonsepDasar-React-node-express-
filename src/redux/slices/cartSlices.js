@@ -9,8 +9,10 @@ const cartSlices = createSlice({
       cartItem: [],
     },
     userLogin: false,
-    dashboardItem: {
-      students: []
+    dashboard: {
+      students: [],
+      sideBar: false,
+      headerBar: false
     }
   },
   reducers: {
@@ -22,7 +24,13 @@ const cartSlices = createSlice({
       state.data.login.push(action.payload)
     },
     dashboardStudents: (state, action) => {
-      state.dashboardItem.students.push(action.payload)
+      state.dashboard.students.push(action.payload)
+    },
+    dashboardSideBar: (state, action) => {
+      state.dashboard.sideBar = action.payload
+    },
+    dashboardHeader: (state, action) => {
+      state.dashboard.headerBar = action.payload
     },
     addToCart: (state, action) => {
       state.data.cartItem.push(action.payload);
@@ -30,5 +38,5 @@ const cartSlices = createSlice({
   },
 });
 
-export const { addToCart, register, login, statusLogin, dashboardStudents } = cartSlices.actions;
+export const { addToCart, register, login, statusLogin, dashboardStudents, dashboardSideBar, dashboardHeader } = cartSlices.actions;
 export default cartSlices.reducer;

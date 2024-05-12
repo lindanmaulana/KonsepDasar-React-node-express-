@@ -7,7 +7,7 @@ const MenuBar = (props) => {
     <div className="flex items-center justify-start w-full pb-2 group">
       <Link
         to={`${to}`}
-        className="flex gap-x-3 group-hover:w-full group-hover:py-2 pl-2 group-hover:rounded-xl group-hover:my-auto group-hover:bg-[#374BAE] transition-global duration-500"
+        className="flex gap-x-3 w-full group-hover:py-2 pl-2 group-hover:rounded-xl group-hover:my-auto group-hover:bg-[#374BAE] transition-global duration-500"
       >
         {icons && icons}
         {state ? (
