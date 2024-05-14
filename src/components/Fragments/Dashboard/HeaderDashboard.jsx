@@ -39,24 +39,24 @@ const HeaderDashboard = (props) => {
             <div
               className={`bg-[#FFFFFF] py-4 px-3 shadow-xl gap-y-3 rounded-md flex flex-col absolute top-8 transition-global w-3/5`}
             >
-              <button className="flex items-center gap-x-3 text-slate-400 group">
+              <Link className="flex items-center gap-x-3 text-slate-400 group">
                 <CgProfile className="text-xl group-hover:text-[#374BAE] transition-global duration-500" />
                 <h2 className="text-xs font-semibold group-hover:text-[#374BAE] transition-global duration-500">
                   Profile
                 </h2>
-              </button>
-              <button className="flex items-center gap-x-3 text-slate-400 group">
+              </Link>
+              <Link className="flex items-center gap-x-3 text-slate-400 group">
                 <IoSettingsOutline className="text-xl group-hover:text-[#374BAE] transition-global duration-500" />
                 <h2 className="text-xs font-semibold group-hover:text-[#374BAE] transition-global duration-500">
                   Setting
                 </h2>
-              </button>
-              <button className="flex items-center gap-x-3 text-slate-400 group">
+              </Link>
+              <Link to="/login-mahasiswa" className="flex items-center gap-x-3 text-slate-400 group">
                 <IoArrowUndoOutline className="text-xl group-hover:text-[#374BAE] transition-global duration-500" />
                 <h2 className="text-xs font-semibold group-hover:text-[#374BAE] transition-global duration-500">
                   Keluar
                 </h2>
-              </button>
+              </Link>
             </div>
           )}
         </div>

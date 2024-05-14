@@ -1,9 +1,9 @@
 import axios from "axios";
 const baseUrl = import.meta.env.VITE_BASEURL;
 
-export const getDataDepartments = async () => {
+export const getDataClasses = async () => {
   try {
-    const res = await axios.get(`${baseUrl}/departments`);
+    const res = await axios.get(`${baseUrl}/classes`);
 
     if (!res.data) throw new Error("Gagal mengambil data");
 

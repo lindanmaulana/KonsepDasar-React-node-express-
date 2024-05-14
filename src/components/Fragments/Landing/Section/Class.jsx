@@ -1,22 +1,24 @@
-import { useEffect, useState } from "react";
+import {  useContext, useEffect, useState } from "react";
 import DepartmentsImg from "../../../Elements/LandingElements/Section/ClassImg";
 import DepartmentsList from "../../../Elements/LandingElements/Section/ClassList";
 import DepartmentsText from "../../../Elements/LandingElements/Section/ClassText";
-import { getDataDepartments } from "../../../../services/departments.services";
+import { getDataClasses} from "../../../../services/classes.services";
 import ClassLayouts from "../../../Layouts/Landing/ClassLayouts";
+import { DarkMode } from "../../../../Context/DarkMode";
 
 const Class = () => {
   const [datas, setDatas] = useState([]);
+  const {isDarkMode} = useContext(DarkMode)
 
   useEffect(() => {
-    getDataDepartments().then((res) => {
+    getDataClasses().then((res) => {
       setDatas(res);
       if (!res) throw new Error("Terjadi kesalahan");
     });
   }, []);
 
   return (
-      <ClassLayouts>
+      <ClassLayouts bg={isDarkMode && "bg-slate-900"}>
         {datas ? (
           datas.map((items) => {
             let layouts = "";

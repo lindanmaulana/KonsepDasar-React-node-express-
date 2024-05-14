@@ -10,6 +10,11 @@ const cartSlices = createSlice({
     },
     userLogin: false,
     dashboard: {
+      amount: {
+        classes: 0,
+        students: 0,
+        college_lesson: 0
+      },
       students: [],
       sideBar: false,
       headerBar: false
@@ -32,11 +37,20 @@ const cartSlices = createSlice({
     dashboardHeader: (state, action) => {
       state.dashboard.headerBar = action.payload
     },
+    amountClasses: (state, action) => {
+      state.dashboard.amount.classes = action.payload
+    },
+    amountStudents: (state, action) => {
+      state.dashboard.amount.students = action.payload
+    },
+    amountCollegeLesson: (state, action) => {
+      state.dashboard.amount.college_lesson = action.payload
+    },
     addToCart: (state, action) => {
       state.data.cartItem.push(action.payload);
     },
   },
 });
 
-export const { addToCart, register, login, statusLogin, dashboardStudents, dashboardSideBar, dashboardHeader } = cartSlices.actions;
+export const { addToCart, register, login, statusLogin, dashboardStudents, dashboardSideBar, dashboardHeader, amountClasses, amountStudents, amountCollegeLesson } = cartSlices.actions;
 export default cartSlices.reducer;

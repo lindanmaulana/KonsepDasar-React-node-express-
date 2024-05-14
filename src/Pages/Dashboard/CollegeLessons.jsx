@@ -1,12 +1,21 @@
-import CollegeLessonsFragments from "../../components/Fragments/Dashboard/ListDashboardFragments/CollegeLessonsFragments"
-import ListDashboardLayouts from "../../components/Layouts/Dashboard/ListDashboardLayouts"
+import { useEffect, useState } from "react";
+import CollegeLessonsFragments from "../../components/Fragments/Dashboard/ListDashboardFragments/CollegeLessonsFragments";
+import SideBar from "../../components/Fragments/Dashboard/SideBar";
+import DashboardLayouts from "../../components/Layouts/Dashboard/DashboardLayouts";
+import { getDataCollegeLeson } from "../../services/dashboard.services";
 
 const CollegeLessons = () => {
-  return (
-    <ListDashboardLayouts>
-        <CollegeLessonsFragments />
-    </ListDashboardLayouts>
-  )
-}
+  const [data, setData] = useState([])
 
-export default CollegeLessons
+  useEffect(() => {
+    getDataCollegeLeson().then((res) => setData(res.payload.datas));
+  }, []);
+
+  return (
+    <DashboardLayouts sidebar={<SideBar />}>
+      <CollegeLessonsFragments data={data}/>
+    </DashboardLayouts>
+  );
+};
+
+export default CollegeLessons;

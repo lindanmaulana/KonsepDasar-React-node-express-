@@ -9,12 +9,14 @@ import { LuPackageOpen } from "react-icons/lu";
 import { TbPasswordFingerprint } from "react-icons/tb";
 import { IoArrowUndoOutline } from "react-icons/io5";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { dashboardSideBar } from "../../../redux/slices/cartSlices";
 
-const SideBar = (props) => {
-  const { handleState } = props;
+const SideBar = () => {
   const [timeInfo, setTimeInfo] = useState("");
-
+  const [state, setState] = useState(false)
+  const dispatch = useDispatch()
+  
   // redux
   const stateSideBar = useSelector(stat => stat.cart.dashboard.sideBar)
 
@@ -23,6 +25,15 @@ const SideBar = (props) => {
     const time = date.toDateString();
     setTimeInfo(time);
   }, [timeInfo]);
+
+  const handleState = () => {
+    setState(!state)
+  }
+
+  useEffect(() => {
+    dispatch(dashboardSideBar(state))
+  }, [dispatch, state])
+
 
   return (
     <div className="flex flex-col items-center justify-between h-full px-4 py-5">
@@ -138,9 +149,9 @@ const SideBar = (props) => {
                 } sidebar-dashboard`}
               />
             }
-            to="/login-mahasiswa"
-            secondTitle="SO"
-            titleMenu="Sign Out"
+            to="/dashboard"
+            secondTitle="BC"
+            titleMenu="Back"
             state={stateSideBar}
           />
         </ListBar>

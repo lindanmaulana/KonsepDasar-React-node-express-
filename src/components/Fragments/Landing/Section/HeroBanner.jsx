@@ -1,8 +1,13 @@
+import { useContext } from "react";
+import { DarkMode } from "../../../../Context/DarkMode";
+
 const HeroBanner = () => {
+  const {isDarkMode} = useContext(DarkMode)
+  
   return (
     <section
       id="hero-banner"
-      className="pt-[70px] md:pt-0"
+      className={`pt-[70px] md:pt-0 ${isDarkMode && "bg-slate-900"}`}
     >
       <div className="container">
         <div className="flex flex-col items-center justify-center w-full h-screen px-2 lg:justify-center sm:px-0 md:flex-row ">

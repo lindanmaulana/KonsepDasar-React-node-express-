@@ -1,9 +1,13 @@
 import { IoLogoInstagram,  IoLogoYoutube } from "react-icons/io5";
 import { BsLinkedin } from "react-icons/bs";
 import FooterList from "../../../Elements/LandingElements/Footer/FooterList";
+import { useContext } from "react";
+import { DarkMode } from "../../../../Context/DarkMode";
 const LandingFooter = () => {
+  const {isDarkMode} = useContext(DarkMode)
+  
   return (
-    <footer className="pt-[32px] pb-[26px]">
+    <footer className={`pt-[32px] pb-[26px] ${isDarkMode && "bg-slate-900"}`}>
         <div className="container px-8 mx-auto">
           <div className="flex flex-col items-start justify-between w-full lg:flex-row">
             <div className="w-[241px] flex flex-col gap-y-[5px] mb-[10px] lg:mb-0 sm:gap-y-[10px] lg:gap-y-[20px]">

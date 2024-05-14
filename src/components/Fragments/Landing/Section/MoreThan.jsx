@@ -1,9 +1,13 @@
 import Kampus2 from "../Iframe/Kampus2";
 import { SlPeople } from "react-icons/sl";
 import { CiClock2 } from "react-icons/ci";
+import { useContext } from "react";
+import { DarkMode } from "../../../../Context/DarkMode";
 const MoreThan = () => {
+  const {isDarkMode} = useContext(DarkMode)
+  
   return (
-    <section id="more-than" className="pt-[40px] md:pt-[67px] pb-[40px] md:pb-[120px] ">
+    <section id="more-than" className={`pt-[40px] md:pt-[67px] pb-[40px] md:pb-[120px] ${isDarkMode && "bg-slate-900"}`}>
       <div className="container">
         <h2 className="text-[30px] px-[50px] lg:text-[40px] mb-[20px] font-bold text-center leading-tight lg:mb-[10px] lg:px-[263px]">
           More than 50.000 students has enrolled this year

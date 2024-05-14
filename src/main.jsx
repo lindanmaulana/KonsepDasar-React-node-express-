@@ -12,6 +12,8 @@ import LoginAdmin from "./Pages/LoginAdmin.jsx";
 import LandingPage from "./Pages/LandingPage.jsx";
 import DashboardPage from "./Pages/DashboardPage.jsx";
 import CollegeLessons from "./Pages/Dashboard/CollegeLessons.jsx";
+import DarkModeContextProvider from "./Context/DarkMode.jsx";
+import ExploreClasses from "./Pages/Dashboard/ExploreClasses.jsx";
 
 const router = createBrowserRouter([
   {
@@ -36,19 +38,25 @@ const router = createBrowserRouter([
     element: <DashboardPage />,
   },
   {
+    path: "/dashboard/explore-classes",
+    element: <ExploreClasses/>
+  },
+  {
     path: "/dashboard/students",
     element: <Students />,
   },
   {
     path: "/dashboard/college-lessons",
-    element: <CollegeLessons/>
-  }
+    element: <CollegeLessons />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <DarkModeContextProvider>
+        <RouterProvider router={router} />
+      </DarkModeContextProvider>
     </Provider>
   </React.StrictMode>
 );

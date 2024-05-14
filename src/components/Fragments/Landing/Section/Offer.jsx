@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import OfferList from "../../../Elements/LandingElements/Section/OfferList";
 import { getDataOffer } from "../../../../services/offer.services";
 import OfferLayouts from "../../../Layouts/Landing/OfferLayouts";
+import { DarkMode } from "../../../../Context/DarkMode";
 
 const Offer = () => {
   const [datas, setDatas] = useState([]);
+  const {isDarkMode} = useContext(DarkMode)
 
   useEffect(() => {
     getDataOffer().then((res) => {
@@ -12,7 +14,7 @@ const Offer = () => {
     });
   }, []);
   return (
-    <OfferLayouts>
+    <OfferLayouts bg={isDarkMode && "bg-slate-900"}>
       {datas ? (
         datas.map((items) => (
           <OfferList

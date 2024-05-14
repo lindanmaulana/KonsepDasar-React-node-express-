@@ -1,22 +1,18 @@
-import { useState } from "react";
-import LandingHeader from "../../Fragments/Landing/Header/LandingHeader";
+import { useContext } from "react";
+import { DarkMode } from "../../../Context/DarkMode";
+import BtnDarkMode from "../../Elements/BtnDarkMode";
 
 const HeaderLayouts = (props) => {
-  const {children} = props
-  const [state, setState] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const handleState = () => {
-    setState(!state);
+  const { children } = props;
 
-    setTimeout(() => {
-      setLoading(!loading);
-    }, 500);
-  };
+  const { isDarkMode } = useContext(DarkMode);
+
   return (
-    <header className="py-[41px]">
+    <header className={`py-[41px] ${isDarkMode && "bg-slate-900"}`}>
       <div className="w-full flex justify-between items-center fixed top-0 right-0 py-[20px] px-2 lg:px-8 z-[99]">
         {children}
       </div>
+      <BtnDarkMode />
     </header>
   );
 };

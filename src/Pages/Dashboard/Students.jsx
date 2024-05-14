@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { getDataStudents } from "../../services/students.services";
-import ListDashboardLayouts from "../../components/Layouts/Dashboard/ListDashboardLayouts";
+import { getDataStudents } from "../../services/dashboard.services";
 import StudentsFragments from "../../components/Fragments/Dashboard/ListDashboardFragments/StudentsFragments";
+import DashboardLayouts from "../../components/Layouts/Dashboard/DashboardLayouts";
+import SideBar from "../../components/Fragments/Dashboard/SideBar";
 const Students = () => {
   const [dataStudents, setDataStudents] = useState([]);
   useEffect(() => {
@@ -11,9 +12,9 @@ const Students = () => {
   }, []);
 
   return (
-    <ListDashboardLayouts>
+    <DashboardLayouts sidebar={<SideBar />}>
       <StudentsFragments data={dataStudents} />
-    </ListDashboardLayouts>
+    </DashboardLayouts>
   );
 };
 
@@ -36,7 +37,7 @@ export default Students;
 //       </Link>
 //     </div>
 //   </div>
-//   <section className="py-2 flex-1 overflow-y-scroll">
+//   <section className="flex-1 py-2 overflow-y-scroll">
 //     <div className="flex flex-col w-full bg-[#FFFFFF] px-8 rounded-2xl">
 //       {/* header */}
 //       <div className="flex items-center justify-between w-full  py-4 border-b border-[#6754B3]">
