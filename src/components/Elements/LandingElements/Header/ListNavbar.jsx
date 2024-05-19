@@ -1,10 +1,16 @@
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { DarkMode } from "../../../../Context/DarkMode";
+
 const ListNavbar = (props) => {
-    const {href, title} = props
+    const {to, title} = props
+    const {isDarkMode} = useContext(DarkMode)
+
   return (
     <li>
-      <a href={href} className="text-[#808396] hover:text-[#030F4B] cursor-pointer ">
+      <Link to={to} className={`${isDarkMode ? "text-[#808396] hover:text-[#FFFFFF]" : "text-[#808396] hover:text-[#030F4B] "} cursor-pointer`}>
         {title}
-      </a>
+      </Link>
     </li>
   );
 };

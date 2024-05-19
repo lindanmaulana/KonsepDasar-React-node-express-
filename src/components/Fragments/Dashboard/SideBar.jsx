@@ -40,7 +40,7 @@ const SideBar = () => {
       <div className="flex flex-col items-center gap-y-6">
         {/* HEADER */}
         <div className="flex items-center justify-center w-full">
-          <h2 className="text-3xl tracking-tight font-bold text-[#374BAE]">
+          <h2 className="text-2xl tracking-tight font-bold text-[#374BAE]">
             {stateSideBar ? "CI" : "Classes Informatic"}
           </h2>
         </div>

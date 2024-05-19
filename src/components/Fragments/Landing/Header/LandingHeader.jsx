@@ -6,7 +6,7 @@ import HeaderLayouts from "../../../Layouts/Landing/HeaderLayouts";
 import Navbar from "../../../Elements/LandingElements/Header/Navbar";
 
 const LandingHeader = (props) => {
-  const { title } = props;
+  const { title, href } = props;
   const [state, setState] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -20,7 +20,8 @@ const LandingHeader = (props) => {
   return (
     <HeaderLayouts>
       <div>
-        <a href="" className="text-[24px] font-extrabold text-[#374BAE] ">
+        <a href={`/${href}`} className="text-[24px] font-extrabold text-[#335DFF] relative cursor-pointer">
+          <span data-aos="fade-right" className="absolute block w-12 h-1 bg-[#335DFF] top-9 rounded-md"></span>
           {title}
         </a>
       </div>
@@ -33,11 +34,11 @@ const LandingHeader = (props) => {
         />
 
         <Navbar>
-          <ListNavbar title="Home" />
+          <ListNavbar title="Home" to="/"/>
           <ListNavbar title="Campus" />
           <ListNavbar title="Education" />
-          <ListNavbar title="Alumni" />
-          <ListNavbar title="About" />
+          <ListNavbar title="Students" to="/students"/>
+          <ListNavbar title="About Me" to="/about" />
         </Navbar>
         
       </nav>

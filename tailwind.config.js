@@ -9,7 +9,9 @@ export default {
       center: true,
     },
     extend: {
-      
+      fontFamily: {
+        'sans': ['Lexend Deca', 'sans-serif'],
+      },
     },
   },
   plugins: [],

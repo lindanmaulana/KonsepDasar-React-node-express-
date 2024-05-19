@@ -39,11 +39,11 @@ const HeaderHamburger = (props) => {
           } transition-all duration-300 ease-in-out z-[99]`}
         >
           <ul className="w-full flex flex-col justify-center gap-y-[10px] text-[18px] font-medium bg-[#335DFF] px-6 py-4 rounded-md md:hidden">
-            <LandingList title="Home" />
+            <LandingList title="Home" to="/" />
             <LandingList title="Campus" />
             <LandingList title="Education" />
             <LandingList title="Alumni" />
-            <LandingList title="About" />
+            <LandingList title="About" to="/about" />
             <button
               onClick={handleLogin}
               className="text-[#808396] hover:text-[#030F4B] cursor-pointer text-left"

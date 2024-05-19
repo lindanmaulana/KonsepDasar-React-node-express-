@@ -17,7 +17,7 @@ const ExploreClasessFragments = () => {
   return (
     <Fragment>
       <HeaderOne title="Explore Classes"  />
-      <HeaderTwo titleSelect="classes" subject="Clases">
+      <HeaderTwo titleSelect="classes" addButton="+ Add Clases">
         {dataCLasses && dataCLasses.map(items => (
             <Fragment key={items.id}>
                 <Option value={items.classes} />

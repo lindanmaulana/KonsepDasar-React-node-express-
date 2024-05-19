@@ -9,7 +9,7 @@ import {
 } from "../redux/slices/cartSlices";
 import SideBar from "../components/Fragments/Dashboard/SideBar";
 import TaskList from "../components/Fragments/Dashboard/TaskList";
-import UserList from "../components/Fragments/Dashboard/UserList";
+import ListActivities from "../components/Fragments/Dashboard/ListActivities";
 import HeaderDashboard from "../components/Fragments/Dashboard/HeaderDashboard";
 import {
   amountDataClasses,
@@ -18,7 +18,6 @@ import {
 } from "../services/dashboard.services";
 const DashboardPage = () => {
   const [headerState, setHeaderState] = useState(false);
-
   // redux
   const dispatch = useDispatch();
   const state = useSelector((state) => state.dashboard);
@@ -55,7 +54,7 @@ const DashboardPage = () => {
     <DashboardLayouts sidebar={<SideBar />}>
       <HeaderDashboard handleState={handleHeader} />
       <TaskList />
-      <UserList />
+      <ListActivities />
     </DashboardLayouts>
   );
 };

@@ -5,6 +5,7 @@ import DepartmentsText from "../../../Elements/LandingElements/Section/ClassText
 import { getDataClasses} from "../../../../services/classes.services";
 import ClassLayouts from "../../../Layouts/Landing/ClassLayouts";
 import { DarkMode } from "../../../../Context/DarkMode";
+import { MdOutlineAutoDelete } from "react-icons/md";
 
 const Class = () => {
   const [datas, setDatas] = useState([]);
@@ -18,7 +19,7 @@ const Class = () => {
   }, []);
 
   return (
-      <ClassLayouts bg={isDarkMode && "bg-slate-900"}>
+      <ClassLayouts bg={isDarkMode ? "bg-[#000000]" : "bg-[#FFFFFF]"}>
         {datas ? (
           datas.map((items) => {
             let layouts = "";
@@ -35,17 +36,22 @@ const Class = () => {
               >
                 <DepartmentsImg src="departments-image.png" />
                 <DepartmentsText
-                  title={items.departments}
+                  title={items.classes}
                   description={items.description}
                 />
               </DepartmentsList>
             );
           })
         ) : (
-          <div>
-            <h1>Terjadi kesalahan Data kosong!!</h1>
+          <div className="flex flex-col items-center justify-center w-full h-full">
+            <MdOutlineAutoDelete className="text-4xl text-[#335DFF]"/>
+            <p className="text-xl italic font-semibold text-slate-400">class not found</p>
           </div>
         )}
+
+        {/* <div className="w-full h-full bg-blue-400">
+          <h1>hello world</h1>
+        </div> */}
       </ClassLayouts>
   );
 };

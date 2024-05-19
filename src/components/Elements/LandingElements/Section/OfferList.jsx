@@ -1,7 +1,7 @@
 const OfferList = (props) => {
-    const {title, description} = props
+    const {title, description, aos} = props
   return (
-    <div className="w-full flex flex-col justify-center items-center gap-y-[10px] lg:w-[316px]">
+    <div data-aos={aos} className="w-full flex flex-col justify-center items-center gap-y-[10px] lg:w-[316px]">
       <img
         src="/src/assets/images/LandingImages/List-menu/work.webp"
         alt=""

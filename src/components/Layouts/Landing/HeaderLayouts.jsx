@@ -8,7 +8,7 @@ const HeaderLayouts = (props) => {
   const { isDarkMode } = useContext(DarkMode);
 
   return (
-    <header className={`py-[41px] ${isDarkMode && "bg-slate-900"}`}>
+    <header className={`py-[21px] ${isDarkMode && "bg-[#000000]"}`}>
       <div className="w-full flex justify-between items-center fixed top-0 right-0 py-[20px] px-2 lg:px-8 z-[99]">
         {children}
       </div>

@@ -7,12 +7,12 @@ const LandingFooter = () => {
   const {isDarkMode} = useContext(DarkMode)
   
   return (
-    <footer className={`pt-[32px] pb-[26px] ${isDarkMode && "bg-slate-900"}`}>
+    <footer className={`pt-[32px] pb-[26px] ${isDarkMode ? "bg-[#000000]" : "bg-[#eee]"}`}>
         <div className="container px-8 mx-auto">
           <div className="flex flex-col items-start justify-between w-full lg:flex-row">
             <div className="w-[241px] flex flex-col gap-y-[5px] mb-[10px] lg:mb-0 sm:gap-y-[10px] lg:gap-y-[20px]">
-              <h2 className="text-[24px] font-extrabold text-[#030F4B] mb-[10px]">Informatika</h2>
-              <p className="text-[12px] font-medium text-[#030F4B] ">Copyright © 2020 Credischool University.All Right Reserved</p>
+              <h2 className="text-[24px] font-extrabold text-[#335DFF] mb-[10px]">Informatika</h2>
+              <p className="text-[12px] font-medium text-[#335DFF] ">Copyright © 2020 Credischool University.All Right Reserved</p>
             </div>
             <div>
               <ul className="lg:w-[481px] flex flex-wrap justify-center items-center gap-[20px] lg:gap-[40px]">

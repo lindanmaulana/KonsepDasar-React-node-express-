@@ -1,20 +1,67 @@
 import { useEffect, useState } from "react";
-import { getDataStudents } from "../../services/dashboard.services";
+import {
+  deleteDataStudents,
+  getDataStudents,
+  sendDataStudents,
+} from "../../services/dashboard.services";
 import StudentsFragments from "../../components/Fragments/Dashboard/ListDashboardFragments/StudentsFragments";
 import DashboardLayouts from "../../components/Layouts/Dashboard/DashboardLayouts";
 import SideBar from "../../components/Fragments/Dashboard/SideBar";
+
 const Students = () => {
   const [dataStudents, setDataStudents] = useState([]);
+
+  // data students
   useEffect(() => {
     getDataStudents().then((res) => {
       setDataStudents(res.payload.datas);
     });
-  }, []);
+  }, [dataStudents]);
+  
+  // add & delete asynchronous
+  const sendData = async (data) => {
+    const res = await sendDataStudents(data);
+    
+    alert(res)
+  };
+
+  const deleteData = async(data) => {
+    const res = await deleteDataStudents(data)
+    
+    alert(res)
+  }
+
+  // add
+  const handleForm = (event) => {
+    event.preventDefault();
+
+    const data = {
+      nama: event.target.nama.value,
+      asalDesa: event.target.asalDesa.value,
+      asalKota: event.target.asalKota.value,
+      noAbsen: parseInt(event.target.noAbsen.value)
+    };
+
+    if (data.nama !== "" && data.asalDesa !== "" && data.asalKota !== "" && data.noAbsen !== null) {
+      sendData(data)
+    }
+  };
+
+  // delete
+  const handleDelete = (id) => {
+    const dataIn = {
+      idUser: id
+    }
+
+    deleteData(dataIn)
+  }
 
   return (
-    <DashboardLayouts sidebar={<SideBar />}>
-      <StudentsFragments data={dataStudents} />
-    </DashboardLayouts>
+    <>
+      <DashboardLayouts sidebar={<SideBar />}>
+        <StudentsFragments data={dataStudents} handleForm={handleForm} handleDelete={handleDelete} />
+      </DashboardLayouts>
+    </>
   );
 };
 

@@ -16,17 +16,15 @@ const LoginMahasiswa = () => {
     setPassword(event.target.value);
   };
 
-
   const loginUser = async (data) => {
-    const res = await formLoginMahasiswa(data)
-    if(res.status !== 200) {
-      setError(res.data.text)
+    const res = await formLoginMahasiswa(data);
+    if (res.status !== 200) {
+      setError(res.data.text);
     } else {
-      setLoading("")
-      window.location.href = "/dashboard"
+      setLoading("");
+      window.location.href = "/dashboard";
     }
-    
-  }
+  };
 
   const handleLoginMahasiswa = (event) => {
     event.preventDefault();
@@ -36,10 +34,8 @@ const LoginMahasiswa = () => {
     };
 
     setLoading("Logging in...");
-    loginUser(dataIn)
+    loginUser(dataIn);
   };
-
-  console.log({error})
 
 
   return (

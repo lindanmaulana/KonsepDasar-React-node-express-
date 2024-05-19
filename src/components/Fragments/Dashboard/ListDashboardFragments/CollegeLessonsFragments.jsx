@@ -1,16 +1,23 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import ContentList from "../../../Elements/DashboardElements/ListDashboard/Content";
 import HeaderOne from "../../../Elements/DashboardElements/ListDashboard/HeaderList";
 import HeaderTwo from "../../../Elements/DashboardElements/ListDashboard/HeaderTwo";
 import Option from "../../../Elements/DashboardElements/ListDashboard/Option";
+import AddLayouts from "../../../Layouts/Dashboard/AddLayouts";
+import Input from "../../../Elements/DashboardElements/ListDashboard/Input";
 
 const CollegeLessonsFragments = (props) => {
   const { data } = props;
+  const [state, setState] = useState(false)
+  
+  const handleAdd = () => {
+    setState(!state)
+  }
 
   return (
     <Fragment>
       <HeaderOne title="College Lessons" />
-      <HeaderTwo titleSelect="Day" subject="College Lessons">
+      <HeaderTwo titleSelect="Day" addButton={state ? "Back" : "+ Add College Lessons"} handleAdd={handleAdd}>
         <Option value="" />
         <Option value="Senin" />
         <Option value="Selasa" />
@@ -19,7 +26,13 @@ const CollegeLessonsFragments = (props) => {
         <Option value="Jumat" />
       </HeaderTwo>
       <ContentList>
-        <table className="w-full overflow-hidden rounded-md shadow-lg">
+        {state ? (
+          <AddLayouts title="College Lesson" icons='hi'>
+            <Input type="text" name="mataKuliah" placeholder="Mata Kuliah" />
+            
+          </AddLayouts>
+        ) : (
+          <table className="w-full overflow-hidden rounded-md shadow-lg">
           <thead>
             <tr className="bg-[#374BAE] text-[#FFFFFF]">
               <th className="p-2">No</th>
@@ -51,6 +64,8 @@ const CollegeLessonsFragments = (props) => {
             )}
           </tbody>
         </table>
+        )}
+
       </ContentList>
     </Fragment>
   );

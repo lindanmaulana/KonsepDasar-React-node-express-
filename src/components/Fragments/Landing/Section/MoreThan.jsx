@@ -7,10 +7,10 @@ const MoreThan = () => {
   const {isDarkMode} = useContext(DarkMode)
   
   return (
-    <section id="more-than" className={`pt-[40px] md:pt-[67px] pb-[40px] md:pb-[120px] ${isDarkMode && "bg-slate-900"}`}>
+    <section id="more-than" className={`pt-[40px] md:pt-[67px] pb-[40px] md:pb-[120px]  ${isDarkMode ? "bg-[#111827]" : "bg-[#FFFFFF]"}`}>
       <div className="container">
-        <h2 className="text-[30px] px-[50px] lg:text-[40px] mb-[20px] font-bold text-center leading-tight lg:mb-[10px] lg:px-[263px]">
-          More than 50.000 students has enrolled this year
+        <h2 className="text-[30px] px-[50px] lg:text-[40px] mb-[20px] font-bold text-center text-[#335DFF] leading-tight lg:mb-[10px] lg:px-[263px]">
+          More than 1.000 students has enrolled this year
         </h2>
         <div className="w-full flex justify-center items-center mb-[40px] px-2">
           <Kampus2 />
